@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour {
+public class Obstacle : MonoBehaviour
+{
+
+    [HideInInspector]
+    public bool isTriggered;
+
     [Header ("Obstacle with animation")]
     public Collider2D myCollider;
     public Animator myAnimator;
@@ -25,6 +30,7 @@ public class Obstacle : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         myCollider.enabled = true;
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     { 
         if (collision.gameObject.tag == "BackGround")
@@ -35,6 +41,7 @@ public class Obstacle : MonoBehaviour {
             }
         }
     }
+
     public void DestroyObject()
     {
         Destroy(gameObject);

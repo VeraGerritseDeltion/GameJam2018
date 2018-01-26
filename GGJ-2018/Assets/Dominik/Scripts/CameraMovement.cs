@@ -5,6 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour 
 {
 
+    public enum Style
+    {
+        Clamped,
+        Lerp
+    }
+    public Style style;
+
     private Vector3 offset;
 
     public Transform target;
@@ -15,9 +22,20 @@ public class CameraMovement : MonoBehaviour
         offset = transform.position - target.position;
     }
 
+    private void Update()
+    {
+        if (style == Style.Clamped)
+        {
+            transform.position = target.position + offset;
+        }
+    }
+
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
+        if (style == Style.Lerp)
+        {
+            transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
+        }
         //transform.position = Vector3.MoveTowards(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
     }
 }
