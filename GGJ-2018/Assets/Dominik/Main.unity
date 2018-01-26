@@ -506,6 +506,47 @@ Prefab:
       propertyPath: m_Simulated
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da27441a7f45a2b48ac99493feadb30e,
+        type: 3}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3.8099997
+      objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.2599999
+      objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3af8f460bb6b7da4a99e26ed664e60c8, type: 2}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212348168279916802, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11df81c733ded8049b6addc553ed72d7, type: 2}
   m_IsPrefabParent: 0
@@ -565,6 +606,8 @@ GameObject:
   - component: {fileID: 1900241392}
   - component: {fileID: 1900241391}
   - component: {fileID: 1900241395}
+  - component: {fileID: 1900241397}
+  - component: {fileID: 1900241396}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -646,8 +689,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db73c9a832ea7ad4b94a6df566b4776d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  style: 0
   target: {fileID: 729881384}
   moveSpeed: 3.5
+--- !u!114 &1900241396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900241390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c52d5644154b3f745ad1b85854d2877e, type: 2}
+--- !u!114 &1900241397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900241390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87e4989c5e703e428df4339d59e2c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showMainBehavior: 1
+  showInnerGlowBehavior: 0
+  blurShader: {fileID: 4800000, guid: 1855d9636fad3914bacc4a543165c974, type: 3}
+  compositeShader: {fileID: 4800000, guid: e384de4389ba527479054baf0ddb1d3e, type: 3}
+  selectiveRenderShader: {fileID: 4800000, guid: c04b7cae8accdfb4e9c2648823ff39d7,
+    type: 3}
+  glowLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  glowType: 0
+  glowTint: {r: 1, g: 1, b: 1, a: 0}
+  blurSpreadInner: 0.6
+  blurIterations: 5
+  glowIntensityInner: 0.4
+  samples: 2
 --- !u!1 &1928045359
 GameObject:
   m_ObjectHideFlags: 0
