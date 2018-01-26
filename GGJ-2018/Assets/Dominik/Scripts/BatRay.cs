@@ -7,7 +7,7 @@ public class BatRay : MonoBehaviour
 
     private Animator anim;
     private AudioSource audioSource;
-    private List<Obstacle> triggeredObstacles;
+    private List<Obstacle> triggeredObstacles = new List<Obstacle>();
 
     public float lifeTime;
     [Space(10)]
