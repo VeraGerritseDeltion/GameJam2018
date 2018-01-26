@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
+    [Header ("Obstacle with animation")]
     public Collider2D myCollider;
     public Animator myAnimator;
+
+    [Header("All obstacles")]
+    public AudioSource myAudioSource;
 
     private void Start()
     {

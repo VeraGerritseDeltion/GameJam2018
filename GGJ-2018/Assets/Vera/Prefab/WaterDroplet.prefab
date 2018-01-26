@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60952075652567212}
   - component: {fileID: 50810758788278946}
   - component: {fileID: 114291207192628598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaterDroplet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCollider: {fileID: 60952075652567212}
   myAnimator: {fileID: 95913589425852744}
-  spawnRate: 0
 --- !u!212 &212838210108438066
 SpriteRenderer:
   m_ObjectHideFlags: 1
