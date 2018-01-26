@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - BackGround
+=======
+  - Obstacle
+>>>>>>> 1f0c9914b0fc9da984f52e68b7a4b0c0c90ca2bb
   layers:
   - Default
   - TransparentFX
