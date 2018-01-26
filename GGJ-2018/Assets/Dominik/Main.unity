@@ -829,20 +829,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95617809478186222, guid: dccd2406c6705174bbd81648c2a22774,
+    - target: {fileID: 50273473389143962, guid: dccd2406c6705174bbd81648c2a22774,
         type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 84c53d6f8d55f0c48bbbbd7b63eb8d71, type: 2}
-    - target: {fileID: 233938676512956064, guid: dccd2406c6705174bbd81648c2a22774,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.5499999
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 233065267245166566, guid: dccd2406c6705174bbd81648c2a22774,
+    - target: {fileID: 50057370131816414, guid: dccd2406c6705174bbd81648c2a22774,
         type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.5500001
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50273473389143962, guid: dccd2406c6705174bbd81648c2a22774,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50057370131816414, guid: dccd2406c6705174bbd81648c2a22774,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50273473389143962, guid: dccd2406c6705174bbd81648c2a22774,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 50057370131816414, guid: dccd2406c6705174bbd81648c2a22774,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dccd2406c6705174bbd81648c2a22774, type: 2}
@@ -891,7 +906,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
