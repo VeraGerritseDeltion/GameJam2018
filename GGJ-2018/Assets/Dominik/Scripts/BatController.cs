@@ -68,6 +68,12 @@ public class BatController : MonoBehaviour
                 Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
             }
         }
+
+        if (collision.tag == "Heart")
+        {
+            GameManager.instance.AddLive();
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
