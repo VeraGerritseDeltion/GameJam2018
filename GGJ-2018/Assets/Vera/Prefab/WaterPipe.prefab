@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4906848726586744}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SpawnLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 212533209724402588}
   - component: {fileID: 60644790677465132}
   - component: {fileID: 114400769347262936}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WaterPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
