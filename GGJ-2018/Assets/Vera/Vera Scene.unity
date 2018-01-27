@@ -156,10 +156,6 @@ Prefab:
       propertyPath: m_Name
       value: modularStone_3 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4589131182633492, guid: 1d7ade8887701274394767dbbdabd690, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d7ade8887701274394767dbbdabd690, type: 2}
   m_IsPrefabParent: 0
@@ -172,11 +168,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4009352475966466, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.97
+      value: 12.966
       objectReference: {fileID: 0}
     - target: {fileID: 4009352475966466, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.79
+      value: 15.71
       objectReference: {fileID: 0}
     - target: {fileID: 4009352475966466, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -206,7 +202,12 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 89cae5f8586f991489f1c67cf7778b58, type: 2}
+      objectReference: {fileID: 2100000, guid: 793aa221e6bb9aa49a8c907635736881, type: 2}
+    - target: {fileID: 212487204395049644, guid: d43ab365becaac644a07af13de9c2fc9,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.472
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
   m_IsPrefabParent: 0
@@ -303,10 +304,6 @@ Prefab:
       propertyPath: m_Name
       value: Square (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4009352475966466, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d43ab365becaac644a07af13de9c2fc9, type: 2}
   m_IsPrefabParent: 0
@@ -369,11 +366,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4978171535408870, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.97
+      value: 12.966
       objectReference: {fileID: 0}
     - target: {fileID: 4978171535408870, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.84
+      value: 20.83
       objectReference: {fileID: 0}
     - target: {fileID: 4978171535408870, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
       propertyPath: m_LocalPosition.z
@@ -402,10 +399,6 @@ Prefab:
     - target: {fileID: 1776628573631260, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
       propertyPath: m_Name
       value: modularStone_2 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978171535408870, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36b16360a89bc6f49ba2f626df84d166, type: 2}
@@ -644,7 +637,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4930232933124140, guid: b6bb6f29526ed424bb805c268a53c843, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.614
+      value: 10.65
       objectReference: {fileID: 0}
     - target: {fileID: 4930232933124140, guid: b6bb6f29526ed424bb805c268a53c843, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1003,11 +996,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.97
+      value: 12.975
       objectReference: {fileID: 0}
     - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.67
+      value: 10.6
       objectReference: {fileID: 0}
     - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1037,17 +1030,9 @@ Prefab:
       propertyPath: m_Name
       value: modularStone_6 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569580127073068, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.105
-      objectReference: {fileID: 0}
     - target: {fileID: 4569580127073068, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.00040008
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
@@ -1153,11 +1138,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4729238399630208, guid: 6403c2128193f9940b420b6ed96c46d9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.09
+      value: 18.086
       objectReference: {fileID: 0}
     - target: {fileID: 4729238399630208, guid: 6403c2128193f9940b420b6ed96c46d9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.685
+      value: 15.71
       objectReference: {fileID: 0}
     - target: {fileID: 4729238399630208, guid: 6403c2128193f9940b420b6ed96c46d9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1356,7 +1341,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.72
+      value: 15.74
       objectReference: {fileID: 0}
     - target: {fileID: 4891046849614762, guid: 506738d08391eca4584ccba25df7ea4d, type: 2}
       propertyPath: m_LocalPosition.z
