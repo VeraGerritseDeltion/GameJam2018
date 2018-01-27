@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGame()
     {
+        yield return new WaitForSeconds(1f);
+
         for (int i = 0; i < maxLives; i++)
         {
             AddLive();

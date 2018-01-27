@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GroundGlow
+  m_Name: RayRound
   m_Shader: {fileID: 4800000, guid: 74db66f016826774ebe09e275eecdf0d, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -72,8 +72,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MKGlowPower: 0
-    - _MKGlowTexStrength: 2.89
+    - _MKGlowPower: 0.1
+    - _MKGlowTexStrength: 0.3
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -87,6 +87,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _MKGlowColor: {r: 0, g: 0.053955525, b: 0.41176468, a: 1}
-    - _MKGlowTexColor: {r: 0, g: 0.0014198669, b: 0.20588237, a: 1}
+    - _MKGlowColor: {r: 0, g: 0.21744424, b: 0.4705882, a: 1}
+    - _MKGlowTexColor: {r: 0, g: 0.21568629, b: 0.47058827, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

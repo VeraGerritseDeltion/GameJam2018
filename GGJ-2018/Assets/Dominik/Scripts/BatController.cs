@@ -8,6 +8,10 @@ public class BatController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Animator anim;
+
+    public GameObject rayRound;
+    [Space(10)]
     public float moveSpeed;
 
     [Header("Camera Shake")]
@@ -51,15 +55,20 @@ public class BatController : MonoBehaviour
         if (collision.tag == "Obstacle")
         {
             GameManager.instance.SubtractLive();
+            anim.SetTrigger("pHurt");
             Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.transform.tag == "Obstacle")
-    //    {
-    //        GameManager.instance.SubtractLive();
-    //    }
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "CaveWall")
+        {
+            Instantiate(rayRound, collision.contacts[0].point, Quaternion.identity);
+
+            GameManager.instance.SubtractLive();
+            anim.SetTrigger("pHurt");
+            Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
+        }
+    }
 }
