@@ -56,7 +56,7 @@ public class BatRay : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Obstacle")
+        if (collision.tag == "Obstacle" || collision.tag == "Heart")
         {
             Obstacle obstacle = collision.GetComponent<Obstacle>();
 
