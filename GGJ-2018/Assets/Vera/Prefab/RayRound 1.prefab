@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   lifeTime: 1
-  moveSpeed: 1500
-  scaleIncreaseSpeed: 5
+  moveSpeed: 2000
+  scaleIncreaseSpeed: 1
   volumeDecreaseSpeed: 1
 --- !u!212 &212275637354553616
 SpriteRenderer:
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 6693f2bd3cc933a42a70765601c81b0d, type: 3}
   m_Color: {r: 0, g: 0.751724, b: 1, a: 1}
   m_FlipX: 0
