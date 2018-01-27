@@ -11,6 +11,7 @@ public class Obstacle : MonoBehaviour
     [Header ("Obstacle with animation")]
     public Collider2D myCollider;
     public Animator myAnimator;
+    public GameObject soundRay;
 
     [Header("All obstacles")]
     public AudioSource myAudioSource;
@@ -38,6 +39,7 @@ public class Obstacle : MonoBehaviour
             if(myAnimator != null)
             {
                 myAnimator.SetBool("NextStep", true);
+                Instantiate(soundRay, transform.position, Quaternion.identity);
             }
         }
     }
