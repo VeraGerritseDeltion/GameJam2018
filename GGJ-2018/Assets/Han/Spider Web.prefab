@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1825210859788964}
+  m_RootGameObject: {fileID: 1431584786011310}
   m_IsPrefabParent: 1
---- !u!1 &1825210859788964
+--- !u!1 &1431584786011310
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4871310899073644}
-  - component: {fileID: 212723512908404566}
-  - component: {fileID: 60149053817525182}
+  - component: {fileID: 4841628663472426}
+  - component: {fileID: 212081156543238102}
+  - component: {fileID: 60597891960853726}
   m_Layer: 0
   m_Name: Spider Web
   m_TagString: Web
@@ -28,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4871310899073644
+--- !u!4 &4841628663472426
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1825210859788964}
-  m_LocalRotation: {x: -0, y: -0, z: -0.522913, w: 0.8523861}
-  m_LocalPosition: {x: -1.0407469, y: -6.842142, z: -9.44227}
-  m_LocalScale: {x: 1.7211262, y: 1.7211249, z: 1.721125}
+  m_GameObject: {fileID: 1431584786011310}
+  m_LocalRotation: {x: -0, y: -0, z: -0.86605775, w: 0.49994403}
+  m_LocalPosition: {x: 44.4, y: -101.2, z: -7.7919}
+  m_LocalScale: {x: 2.6488395, y: 2.648838, z: 2.648838}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -120.007}
---- !u!60 &60149053817525182
+--- !u!60 &60597891960853726
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1825210859788964}
+  m_GameObject: {fileID: 1431584786011310}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -384,12 +384,12 @@ PolygonCollider2D:
       - {x: -0.453125, y: 3.328125}
       - {x: -0.75, y: 3.0625}
       - {x: -0.8125, y: 3.0625}
---- !u!212 &212723512908404566
+--- !u!212 &212081156543238102
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1825210859788964}
+  m_GameObject: {fileID: 1431584786011310}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
