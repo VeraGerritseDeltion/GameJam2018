@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class StartScreen : MonoBehaviour{
     public GameObject startCanvas,pauseCanvas;
     public GameObject quitMenu, optionMenu;
+    public AudioClip menuSong;
+    public AudioSource menuAudio;
 
     void Start(){
+        print(menuAudio.clip.length);
         quitMenu.SetActive(false);
         pauseCanvas.SetActive(false);
         optionMenu.SetActive(false);
