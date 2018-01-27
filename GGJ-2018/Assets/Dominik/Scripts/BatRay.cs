@@ -71,6 +71,19 @@ public class BatRay : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "CaveWall")
+        {
+            Destroy(gameObject);
+
+            //Vector2 dir = collision.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
+            //dir = -dir.normalized;
+
+            //transform.rotation = Quaternion.Euler(dir);
+        }
+    }
+
     private void FadeOut()
     {
         anim.SetTrigger("FadeOut");

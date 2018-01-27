@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212517574795764948}
   m_Layer: 0
   m_Name: modularStone_2
-  m_TagString: Untagged
+  m_TagString: CaveWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,9 +62,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776628573631260}
+<<<<<<< HEAD
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.4724, y: 20.84, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+=======
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 12.966, y: 20.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> 00101a23e51466aee533ed1772c341e584f3940f
   m_Children:
   - {fileID: 4132868375146202}
   m_Father: {fileID: 0}
