@@ -14,6 +14,9 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 offset;
 
+    public float deathZoomCamSize;
+    public float deathZoomSpeed;
+
     public Transform target;
     public float moveSpeed;
 
@@ -34,7 +37,17 @@ public class CameraMovement : MonoBehaviour
     {
         if (style == Style.Lerp)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
+            if (!GameManager.instance.isDead)
+            {
+                transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
+            }
+            else
+            {
+                if (Camera.main.orthographicSize > deathZoomCamSize)
+                {
+                    Camera.main.orthographicSize -= (Time.deltaTime * deathZoomSpeed);
+                }
+            }
         }
         //transform.position = Vector3.MoveTowards(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
     }

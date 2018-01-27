@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour 
 {
 
     public static GameManager instance;
 
+    [HideInInspector]
+    public bool isDead;
     public int maxLives;
     private int currentLives;
 
     public GameObject heartObject;
     public Transform heartContainer;
+
+    public BatController batController;
+    public Rigidbody2D batLetterRb;
 
     private void Awake()
     {
@@ -57,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         if (currentLives <= 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
@@ -72,8 +78,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public IEnumerator GameOver()
     {
-        print("Game Over!");
+        batController.enabled = false;
+        batController.gameObject.GetComponent<Collider2D>().enabled = false;
+        batController.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
+        isDead = true;
+
+        CameraMovement camMove = Camera.main.GetComponent<CameraMovement>();
+        camMove.moveSpeed = 100f;
+
+        while (Camera.main.orthographicSize > camMove.deathZoomCamSize)
+        {
+            yield return null;
+        }
+
+        batController.anim.SetTrigger("pDie");
+        batLetterRb.simulated = true;
+
+        yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length);
+
+        print("bring up death screen");
     }
 }
