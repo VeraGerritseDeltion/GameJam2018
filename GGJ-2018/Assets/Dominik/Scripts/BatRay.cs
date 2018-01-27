@@ -5,6 +5,13 @@ using UnityEngine;
 public class BatRay : MonoBehaviour 
 {
 
+    public enum Type
+    {
+        Single,
+        Round
+    }
+    public Type type;
+
     private Animator anim;
     private AudioSource audioSource;
     private List<Obstacle> triggeredObstacles = new List<Obstacle>();
@@ -34,9 +41,17 @@ public class BatRay : MonoBehaviour
             FadeOut();
         }
 
-        transform.Translate(Vector3.up * (Time.deltaTime * moveSpeed));
-        transform.localScale += new Vector3(Time.deltaTime * scaleIncreaseSpeed, Time.deltaTime * scaleIncreaseSpeed);
-        audioSource.volume -= Time.deltaTime * volumeDecreaseSpeed;
+        if (type == Type.Single)
+        {
+            transform.Translate(Vector3.up * (Time.deltaTime * moveSpeed));
+            transform.localScale += new Vector3(Time.deltaTime * scaleIncreaseSpeed, Time.deltaTime * scaleIncreaseSpeed);
+            audioSource.volume -= Time.deltaTime * volumeDecreaseSpeed;
+        }
+        else if (type == Type.Round)
+        {
+            transform.localScale += new Vector3(Time.deltaTime * scaleIncreaseSpeed, Time.deltaTime * scaleIncreaseSpeed);
+            audioSource.volume -= Time.deltaTime * volumeDecreaseSpeed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
