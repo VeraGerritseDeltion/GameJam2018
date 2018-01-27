@@ -8,6 +8,8 @@ TagManager:
   - CaveWall
   - BackGround
   - Heart
+  - SlowDown
+  - Web
   layers:
   - Default
   - TransparentFX
