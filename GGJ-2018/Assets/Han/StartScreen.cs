@@ -8,6 +8,7 @@ public class StartScreen : MonoBehaviour{
     public GameObject startCanvas,pauseCanvas;
     public GameObject quitMenu, optionMenu;
     public GameObject pointer;
+    public GameObject dificultiLock;
 
     void Start(){
         startCanvas.SetActive(true);
@@ -37,6 +38,7 @@ public class StartScreen : MonoBehaviour{
 
 
     public void StartGame(){
+        dificultiLock.SetActive(true);
         startCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         Time.timeScale = 1;

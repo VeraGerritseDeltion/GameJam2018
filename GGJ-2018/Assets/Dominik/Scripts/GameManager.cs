@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        StartCoroutine(StartGame());
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -66,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator StartGame()
+    public IEnumerator StartGame()
     {
         yield return new WaitForSeconds(1f);
 
