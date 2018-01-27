@@ -9,12 +9,15 @@ public class StartScreen : MonoBehaviour{
     public GameObject quitMenu, optionMenu;
     public GameObject pointer;
     public GameObject dificultiLock;
+    public GameObject gamOverScreen;
 
     void Start(){
+        dificultiLock.SetActive(false);
         startCanvas.SetActive(true);
         quitMenu.SetActive(false);
         pauseCanvas.SetActive(false);
         optionMenu.SetActive(false);
+        gamOverScreen.SetActive(false);
         Time.timeScale = 0;
     }
 
