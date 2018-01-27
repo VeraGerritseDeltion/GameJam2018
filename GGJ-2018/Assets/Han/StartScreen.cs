@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour{
     public GameObject startCanvas,pauseCanvas;
     public GameObject quitMenu, optionMenu;
-    public AudioClip menuSong;
-    public AudioSource menuAudio;
+    public GameObject pointer;
 
     void Start(){
-        print(menuAudio.clip.length);
+        startCanvas.SetActive(true);
         quitMenu.SetActive(false);
         pauseCanvas.SetActive(false);
         optionMenu.SetActive(false);
@@ -18,6 +18,7 @@ public class StartScreen : MonoBehaviour{
     }
 
     private void Update(){
+
         if (Input.GetButtonDown("Cancel")){
             if(pauseCanvas.activeSelf == false && startCanvas.activeSelf == false){
                 pauseCanvas.SetActive(true);
@@ -53,7 +54,21 @@ public class StartScreen : MonoBehaviour{
         Application.Quit();
     }
 
-    public void EndGameNo(){
+    public void EndGameNo() {
         quitMenu.SetActive(false);
+    }
+
+    public void Highlight(Transform t){
+        pointer.transform.SetParent(t);
+        pointer.transform.localPosition = new Vector3(-75,0,0);
+        pointer.SetActive(true);
+    }
+
+    public void noHighlight() {
+        pointer.SetActive(false);
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(1);
     }
 }
