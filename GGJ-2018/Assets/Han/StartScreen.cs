@@ -12,6 +12,9 @@ public class StartScreen : MonoBehaviour{
     public GameObject gamOverScreen;
 
     void Start(){
+        if(startCanvas.activeSelf == true){
+            StartCoroutine(GameManager.instance.StartGame());
+        }
         dificultiLock.SetActive(false);
         startCanvas.SetActive(true);
         quitMenu.SetActive(false);
@@ -74,6 +77,6 @@ public class StartScreen : MonoBehaviour{
     }
 
     public void Restart() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
