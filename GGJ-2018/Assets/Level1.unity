@@ -8946,6 +8946,7 @@ MonoBehaviour:
   isTriggered: 0
   myCollider: {fileID: 1985474142}
   myAnimator: {fileID: 1985474143}
+  soundRay: {fileID: 0}
   myAudioSource: {fileID: 1985474141}
   detectedParticle: {fileID: 188857611}
   waypoints:
