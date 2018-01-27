@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114504493597770710}
   - component: {fileID: 95474216063054026}
   - component: {fileID: 82761278785036494}
+  - component: {fileID: 164646590897396110}
   m_Layer: 0
   m_Name: RayRound 1
   m_TagString: Untagged
@@ -156,6 +157,28 @@ MonoBehaviour:
   moveSpeed: 2000
   scaleIncreaseSpeed: 1
   volumeDecreaseSpeed: 1
+--- !u!164 &164646590897396110
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783771586879000}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 10.05
+  m_DecayHFRatio: 0.23
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: 198
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 11
 --- !u!212 &212275637354553616
 SpriteRenderer:
   m_ObjectHideFlags: 1

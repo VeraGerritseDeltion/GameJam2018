@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 114864594515641616}
   - component: {fileID: 82062572297303296}
   - component: {fileID: 114114960369409356}
+  - component: {fileID: 164174256690066084}
   m_Layer: 0
   m_Name: BatParent
   m_TagString: Untagged
@@ -758,7 +759,8 @@ AudioSource:
   m_GameObject: {fileID: 1447506792460902}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c81409c5b11c494438bbce096280435e,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a9521c988d910543a84de428ff1cdbd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.188
@@ -907,6 +909,28 @@ MonoBehaviour:
   chance: 0
   anim: {fileID: 0}
   test: 0
+--- !u!164 &164174256690066084
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447506792460902}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 10.05
+  m_DecayHFRatio: 0.23
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: 198
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 11
 --- !u!212 &212032219536489840
 SpriteRenderer:
   m_ObjectHideFlags: 1

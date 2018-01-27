@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 95286529141717820}
   - component: {fileID: 82111471747864614}
   - component: {fileID: 61468201245873370}
+  - component: {fileID: 164174684071055468}
   m_Layer: 0
   m_Name: Ray
   m_TagString: Untagged
@@ -229,6 +230,28 @@ MonoBehaviour:
   moveSpeed: 50
   scaleIncreaseSpeed: 1.5
   volumeDecreaseSpeed: 1
+--- !u!164 &164174684071055468
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967916370264688}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 10.05
+  m_DecayHFRatio: 0.23
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: 198
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 11
 --- !u!212 &212767703939116646
 SpriteRenderer:
   m_ObjectHideFlags: 1
