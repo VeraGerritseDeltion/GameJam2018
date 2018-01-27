@@ -9,41 +9,38 @@ public class Obstacle : MonoBehaviour
     public bool isTriggered;
 
     [Header ("Obstacle with animation")]
-    public Collider2D myCollider;
     public Animator myAnimator;
     public GameObject soundRay;
 
     [Header("All obstacles")]
     public AudioSource myAudioSource;
-    public GameObject detectedParticle;
+    public GameObject detectedParticle; 
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(myCollider != null)
-        {
-            myCollider.enabled = false;
-            StartCoroutine(Timer());
-        }
-
-    }
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(0.1f);
-        myCollider.enabled = true;
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    { 
         if (collision.gameObject.tag == "BackGround")
         {
-            if(myAnimator != null)
+            if (myAnimator != null)
             {
                 myAnimator.SetBool("NextStep", true);
-                Instantiate(soundRay,collision.contacts[0].point, Quaternion.identity);
+                Instantiate(soundRay, new Vector3(transform.position.x,transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
+                GetComponent<Rigidbody2D>().simulated = false;
             }
         }
     }
+
+    // public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "BackGround")
+    //    {
+    //        if (myAnimator != null)
+    //        {
+    //            myAnimator.SetBool("NextStep", true);
+    //            Instantiate(soundRay, collision.contacts[0].point, Quaternion.identity);
+    //            GetComponent<Rigidbody2D>().isKinematic = true;
+    //        }
+    //    }
+    //}
 
     public void DestroyObject()
     {
