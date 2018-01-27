@@ -60,6 +60,11 @@ public class BatRay : MonoBehaviour
         {
             Obstacle obstacle = collision.GetComponent<Obstacle>();
 
+            if (obstacle.detectedParticle != null)
+            {
+                obstacle.detectedParticle.SetActive(true);
+            }
+
             if (!obstacle.isTriggered)
             {
                 obstacle.isTriggered = true;
@@ -75,7 +80,10 @@ public class BatRay : MonoBehaviour
     {
         if (collision.transform.tag == "CaveWall")
         {
-            Destroy(gameObject);
+            AnimationEventDestroy();
+
+            //GetComponent<Rigidbody2D>().isKinematic = true;
+            //FadeOut();
 
             //Vector2 dir = collision.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
             //dir = -dir.normalized;
@@ -91,11 +99,6 @@ public class BatRay : MonoBehaviour
 
     private void AnimationEventDestroy()
     {
-        for (int i = 0; i < triggeredObstacles.Count; i++)
-        {
-            triggeredObstacles[i].isTriggered = false;
-        }
-
         Destroy(gameObject);
     }
 }

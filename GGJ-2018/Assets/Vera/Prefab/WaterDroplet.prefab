@@ -132,6 +132,7 @@ MonoBehaviour:
   myCollider: {fileID: 60952075652567212}
   myAnimator: {fileID: 95913589425852744}
   myAudioSource: {fileID: 0}
+  detectedParticle: {fileID: 0}
 --- !u!212 &212838210108438066
 SpriteRenderer:
   m_ObjectHideFlags: 1

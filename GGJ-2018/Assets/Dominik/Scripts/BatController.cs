@@ -13,6 +13,9 @@ public class BatController : MonoBehaviour
     public GameObject rayRound;
     [Space(10)]
     public float moveSpeed;
+    [Space(10)]
+    public float hitInvinsiibilityTime;
+    private bool canGetHit = true;
 
     [Header("Camera Shake")]
     public float shakeX;
@@ -54,9 +57,16 @@ public class BatController : MonoBehaviour
     {
         if (collision.tag == "Obstacle")
         {
-            GameManager.instance.SubtractLive();
-            anim.SetTrigger("pHurt");
-            Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
+            if (canGetHit)
+            {
+                StartCoroutine(HitInvinsibility());
+
+                GameManager.instance.SubtractLive();
+                collision.GetComponent<Obstacle>().myAnimator.SetTrigger("Highlight");
+
+                anim.SetTrigger("pHurt");
+                Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
+            }
         }
     }
 
@@ -64,11 +74,23 @@ public class BatController : MonoBehaviour
     {
         if (collision.transform.tag == "CaveWall")
         {
-            Instantiate(rayRound, collision.contacts[0].point, Quaternion.identity);
+            if (canGetHit)
+            {
+                StartCoroutine(HitInvinsibility());
 
-            GameManager.instance.SubtractLive();
-            anim.SetTrigger("pHurt");
-            Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
+                Instantiate(rayRound, collision.contacts[0].point, Quaternion.identity);
+
+                GameManager.instance.SubtractLive();
+                anim.SetTrigger("pHurt");
+                Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
+            }
         }
+    }
+
+    private IEnumerator HitInvinsibility()
+    {
+        canGetHit = false;
+        yield return new WaitForSeconds(hitInvinsiibilityTime);
+        canGetHit = true;
     }
 }

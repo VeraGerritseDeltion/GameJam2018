@@ -5,7 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isTriggered;
 
     [Header ("Obstacle with animation")]
@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
 
     [Header("All obstacles")]
     public AudioSource myAudioSource;
+    public GameObject detectedParticle;
 
     private void Start()
     {
@@ -45,5 +46,11 @@ public class Obstacle : MonoBehaviour
     public void DestroyObject()
     {
         Destroy(gameObject);
+    }
+
+    public void AnimationEventTrigger()
+    {
+        print("test");
+        isTriggered = false;
     }
 }
