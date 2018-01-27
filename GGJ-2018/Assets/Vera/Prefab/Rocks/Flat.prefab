@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4018607089372762}
   - component: {fileID: 212221501550361830}
+  - component: {fileID: 95372749265179602}
   m_Layer: 0
   m_Name: FlatGlow
   m_TagString: Untagged
@@ -119,6 +120,23 @@ PolygonCollider2D:
       - {x: 2.56, y: -2.56}
       - {x: 2.56, y: -1.53}
       - {x: 2.52, y: -1.52}
+--- !u!95 &95372749265179602
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330410228561848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a95d6c76e2b49f44bff358b33963c53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212221501550361830
 SpriteRenderer:
   m_ObjectHideFlags: 1

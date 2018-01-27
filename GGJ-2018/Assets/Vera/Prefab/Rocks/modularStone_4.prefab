@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4824012754978754}
   - component: {fileID: 212119846156841812}
+  - component: {fileID: 95123997045922860}
   m_Layer: 0
   m_Name: modularGlow_4
   m_TagString: Untagged
@@ -159,6 +160,23 @@ PolygonCollider2D:
       - {x: -0.93, y: -0.42}
       - {x: -0.87, y: -0.16}
       - {x: -0.88, y: -0.03}
+--- !u!95 &95123997045922860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643881299369338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a95d6c76e2b49f44bff358b33963c53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212119846156841812
 SpriteRenderer:
   m_ObjectHideFlags: 1
