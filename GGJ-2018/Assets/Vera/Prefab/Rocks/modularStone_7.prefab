@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4328503589669030}
   - component: {fileID: 212063753162872642}
-  - component: {fileID: 60171448925260836}
   m_Layer: 0
   m_Name: modularStone_7
-  m_TagString: CaveWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,8 +50,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664155063738044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -160.15334, y: 17.612158, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -2.3524, y: 15.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836945543106164}
   m_Father: {fileID: 0}
@@ -71,39 +70,6 @@ Transform:
   m_Father: {fileID: 4328503589669030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60171448925260836
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1664155063738044}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.5799999, y: 2.3899999}
-      - {x: -1.53, y: 2.56}
-      - {x: -2.56, y: 2.56}
-      - {x: -2.56, y: 1.54}
-      - {x: -2.51, y: 1.54}
-      - {x: -2.3899999, y: 1.55}
-      - {x: -2.26, y: 1.79}
-      - {x: -2.23, y: 1.93}
-      - {x: -1.88, y: 2.01}
 --- !u!212 &212063753162872642
 SpriteRenderer:
   m_ObjectHideFlags: 1
