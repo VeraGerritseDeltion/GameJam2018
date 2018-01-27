@@ -7,6 +7,8 @@ public class BatRayController : MonoBehaviour
 
     public static bool isFiringRay;
 
+    public Animator anim;
+
     public Transform rayParent;
     public Transform newRaySpawn;
     [Space(10)]
@@ -18,6 +20,14 @@ public class BatRayController : MonoBehaviour
     public float rayCooldown;
     public int raysToFire;
     public float timeBetweenRays;
+
+    [Header("Camera Shake")]
+    public float shakeX;
+    public float shakeY;
+    public float shakeZ;
+    public float shakeSpeed;
+    public float shakeDuration;
+    public float shakeRotate;
 
     private void Update()
     {
@@ -50,6 +60,9 @@ public class BatRayController : MonoBehaviour
     private IEnumerator FireRay()
     {
         isFiringRay = true;
+
+        anim.SetTrigger("pScreech");
+        Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
 
         for (int i = 0; i < raysToFire; i++)
         {

@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        StartCoroutine(StartGame());
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -58,6 +63,15 @@ public class GameManager : MonoBehaviour
         if (currentLives <= 0)
         {
             GameOver();
+        }
+    }
+
+    private IEnumerator StartGame()
+    {
+        for (int i = 0; i < maxLives; i++)
+        {
+            AddLive();
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

@@ -10,6 +10,14 @@ public class BatController : MonoBehaviour
 
     public float moveSpeed;
 
+    [Header("Camera Shake")]
+    public float shakeX;
+    public float shakeY;
+    public float shakeZ;
+    public float shakeSpeed;
+    public float shakeDuration;
+    public float shakeRotate;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,11 +46,20 @@ public class BatController : MonoBehaviour
         rb.MovePosition(currentPosition + velocity);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Obstacle")
+        if (collision.tag == "Obstacle")
         {
-
+            GameManager.instance.SubtractLive();
+            Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.transform.tag == "Obstacle")
+    //    {
+    //        GameManager.instance.SubtractLive();
+    //    }
+    //}
 }
