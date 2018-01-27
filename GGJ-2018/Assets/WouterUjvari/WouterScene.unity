@@ -318,6 +318,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1454053576 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1447506792460902, guid: dccd2406c6705174bbd81648c2a22774,
+    type: 2}
+  m_PrefabInternal: {fileID: 2101167450}
+--- !u!164 &1454053583
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1454053576}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 10.05
+  m_DecayHFRatio: 0.23
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: 198
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 11
 --- !u!1 &1669563110
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +632,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82062572297303296, guid: dccd2406c6705174bbd81648c2a22774,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: c81409c5b11c494438bbce096280435e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dccd2406c6705174bbd81648c2a22774, type: 2}
   m_IsPrefabParent: 0

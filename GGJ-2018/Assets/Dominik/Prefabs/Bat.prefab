@@ -245,8 +245,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757747012848802}
-  - component: {fileID: 114453228039571788}
-  - component: {fileID: 50677683515715588}
   m_Layer: 0
   m_Name: BatPlayer
   m_TagString: Untagged
@@ -891,26 +889,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!50 &50677683515715588
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454020771029586}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &58028631249670568
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -943,27 +921,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114453228039571788
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454020771029586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa45637cbda7e8d49b10e7ca836f6f30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  rayRound: {fileID: 0}
-  moveSpeed: 20
-  hitInvinsiibilityTime: 0
-  shakeX: 0
-  shakeY: 0
-  shakeZ: 0
-  shakeSpeed: 0
-  shakeDuration: 0
-  shakeRotate: 0
 --- !u!114 &114469372235148896
 MonoBehaviour:
   m_ObjectHideFlags: 1
