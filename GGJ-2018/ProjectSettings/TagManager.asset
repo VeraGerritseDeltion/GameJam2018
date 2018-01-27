@@ -3,12 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
   tags:
   - Obstacle
-=======
-  tags: []
->>>>>>> 34a1b5b806d312f42caf7c6f7ebef90e65de140e
   layers:
   - Default
   - TransparentFX
