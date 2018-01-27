@@ -13,21 +13,16 @@ public class BatRay : MonoBehaviour
     public Type type;
 
     private Animator anim;
-    private AudioSource audioSource;
     private List<Obstacle> triggeredObstacles = new List<Obstacle>();
 
     public float lifeTime;
     [Space(10)]
     public float moveSpeed;
     public float scaleIncreaseSpeed;
-    public float volumeDecreaseSpeed;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-
-        audioSource.pitch = Random.Range(0.95f, 1.2f);
     }
 
     private void Update()
@@ -45,12 +40,10 @@ public class BatRay : MonoBehaviour
         {
             transform.Translate(Vector3.up * (Time.deltaTime * moveSpeed));
             transform.localScale += new Vector3(Time.deltaTime * scaleIncreaseSpeed, Time.deltaTime * scaleIncreaseSpeed);
-            audioSource.volume -= Time.deltaTime * volumeDecreaseSpeed;
         }
         else if (type == Type.Round)
         {
             transform.localScale += new Vector3(Time.deltaTime * scaleIncreaseSpeed, Time.deltaTime * scaleIncreaseSpeed);
-            audioSource.volume -= Time.deltaTime * volumeDecreaseSpeed;
         }
     }
 

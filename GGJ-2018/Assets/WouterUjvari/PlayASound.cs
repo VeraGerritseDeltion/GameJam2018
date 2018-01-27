@@ -17,7 +17,7 @@ public class PlayASound : MonoBehaviour {
     public void PlayASoundForMe2(float pitch)
     {
 
-        myAudioSource2.pitch = pitch;
+        myAudioSource2.pitch = Random.Range(0.95f, 1.2f);
         myAudioSource2.Play();
     }
 }
