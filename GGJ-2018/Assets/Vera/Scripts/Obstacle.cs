@@ -40,7 +40,7 @@ public class Obstacle : MonoBehaviour
             if(myAnimator != null)
             {
                 myAnimator.SetBool("NextStep", true);
-                Instantiate(soundRay, transform.position, Quaternion.identity);
+                Instantiate(soundRay,collision.contacts[0].point, Quaternion.identity);
             }
         }
     }
