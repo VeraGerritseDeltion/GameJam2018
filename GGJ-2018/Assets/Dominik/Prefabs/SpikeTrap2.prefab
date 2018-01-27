@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 95015869041086658}
   - component: {fileID: 114586374459184812}
   m_Layer: 0
-  m_Name: spike2
+  m_Name: spike1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,15 +70,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1998271175460114}
-  m_LocalRotation: {x: -0, y: -0, z: 0.85361797, w: 0.52089965}
-  m_LocalPosition: {x: 41.7, y: -83.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.73406047, w: -0.6790841}
+  m_LocalPosition: {x: -34.7, y: 28.1, z: 0}
   m_LocalScale: {x: 4, y: 6, z: 1}
   m_Children:
   - {fileID: 4488864194257372}
   - {fileID: 4599966937341524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 117.215004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 265.544}
 --- !u!4 &4488864194257372
 Transform:
   m_ObjectHideFlags: 1
@@ -114,7 +114,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -340,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  myCollider: {fileID: 60648756168028722}
   myAnimator: {fileID: 95015869041086658}
   soundRay: {fileID: 0}
   myAudioSource: {fileID: 82443986198092284}
@@ -3795,7 +3794,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 0995dd6754359744da7b74c529e9ba86, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

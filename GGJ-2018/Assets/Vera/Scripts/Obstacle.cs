@@ -47,9 +47,12 @@ public class Obstacle : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void AnimationEventTrigger()
+    public IEnumerator TriggerObstacle()
     {
-        print("test");
+        isTriggered = true;
+
+        yield return new WaitForSeconds(2.5f);
+
         isTriggered = false;
     }
 }

@@ -67,8 +67,7 @@ public class BatRay : MonoBehaviour
 
             if (!obstacle.isTriggered)
             {
-                obstacle.isTriggered = true;
-                triggeredObstacles.Add(obstacle);
+                GameManager.instance.StartCoroutine(obstacle.TriggerObstacle());
 
                 obstacle.myAnimator.SetTrigger("Highlight");
                 obstacle.myAudioSource.Play();

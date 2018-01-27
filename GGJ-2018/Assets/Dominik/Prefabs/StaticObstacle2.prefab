@@ -433,8 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  myCollider: {fileID: 60071055935242738}
   myAnimator: {fileID: 95914912735930418}
+  soundRay: {fileID: 0}
   myAudioSource: {fileID: 82513255051036708}
   detectedParticle: {fileID: 1880426533836992}
 --- !u!198 &198298170427184072
@@ -3885,7 +3885,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: 205e026c87b7c1c4da6f078a72766094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
