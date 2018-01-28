@@ -20,5 +20,6 @@ public class AnimationControle : MonoBehaviour {
     public void StopFlying()
     {
         anim.enabled = false;
+        mainCam.transform.position = transform.position;
     }
 }
