@@ -68,8 +68,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartGame()
+    public IEnumerator StartGame(int lives)
     {
+        maxLives = lives;
+
         yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < maxLives; i++)
@@ -99,7 +101,7 @@ public class GameManager : MonoBehaviour
         batLetterRb.simulated = true;
 
         yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length + 4f);
-        sc.gamOverScreen.SetActive(true);
+        sc.gameOverPanel.SetActive(true);
         
     }
 }
