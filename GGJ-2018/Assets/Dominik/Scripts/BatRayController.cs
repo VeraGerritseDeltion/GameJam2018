@@ -10,6 +10,7 @@ public class BatRayController : MonoBehaviour
     public Animator anim;
 
     public Transform rayParent;
+    public Transform mousePos;
     public Transform newRaySpawn;
     [Space(10)]
     public float rotateSpeed;
@@ -33,7 +34,7 @@ public class BatRayController : MonoBehaviour
     {
         RotateRay();
 
-        if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown)
+        if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
         {
             rayRateCooldown = Time.time + rayCooldown;
 
@@ -55,6 +56,10 @@ public class BatRayController : MonoBehaviour
                 rayParent.transform.Rotate(new Vector3(0, 0, Time.deltaTime * rotateSpeed));
             }
         }
+    }
+
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
     private IEnumerator FireRay()
