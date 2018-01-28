@@ -36,14 +36,16 @@ public class BatRayController : MonoBehaviour
 
     private void Update()
     {
-        if (DataManager.instance.rayMovement == DataManager.RayMovement.Mouse)
-        {
-            RotateMouse();
-        }
-        else
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             RotateRay();
         }
+        else
+        {
+            RotateMouse();
+        }
+
+
 
         if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
         {
