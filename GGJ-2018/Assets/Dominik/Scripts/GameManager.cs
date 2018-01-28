@@ -32,11 +32,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-        if (DataManager.instance.completedTutorial)
-        {
-            // put player beneath well
-        }
     }
 
     private void Update()
