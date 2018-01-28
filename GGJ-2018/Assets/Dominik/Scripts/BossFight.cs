@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossFight : MonoBehaviour 
 {
@@ -10,12 +11,14 @@ public class BossFight : MonoBehaviour
 
     private GameObject player;
 
+    public bool isInEatRange;
     private bool isInBossFight;
     public bool canAggro;
     public bool isGrabbable;
     public bool grabbedPlayedRight;
     public bool grabbedPlayedLeft;
 
+    public GameObject spiderBossObject;
     public GameObject spiderBoss;
     public Animator bossAnim;
 
@@ -28,6 +31,12 @@ public class BossFight : MonoBehaviour
 
     public float bossCamZoom;
     public float bossCamZoomSpeed;
+
+    public Animator victoryAnim1;
+    public Animator victoryAnim2;
+
+    public List<AudioClip> spiderSounds = new List<AudioClip>();
+    public AudioSource audioSource;
 
     [Header("Camera Shake")]
     public float shakeX;
@@ -49,12 +58,15 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
-        if (canAggro && grabbedPlayedLeft == false && grabbedPlayedLeft == false)
+        if (canAggro)
         {
-            print("k");
-            Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - spiderRotate.localPosition.x, BossBattleManager.bsm.target.position.y - spiderRotate.localPosition.y, 0);
-            float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-            spiderRotate.rotation = Quaternion.Euler(0, 0, angle - 90);
+            BatController bat = GameObject.FindWithTag("Player").GetComponent<BatController>();
+            if (bat.GetComponent<Rigidbody2D>().simulated == true)
+            {
+                Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - spiderRotate.localPosition.x, BossBattleManager.bsm.target.position.y - spiderRotate.localPosition.y, 0);
+                float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+                spiderRotate.rotation = Quaternion.Euler(0, 0, angle - 90);
+            }
 
         }
 
@@ -65,6 +77,11 @@ public class BossFight : MonoBehaviour
         if (grabbedPlayedLeft)
         {
             player.transform.position = spiderSecondCheckTriggerLeft.position;
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            StartCoroutine(KillBoss());
         }
     }
 
@@ -89,6 +106,9 @@ public class BossFight : MonoBehaviour
         Camera.main.GetComponent<CameraMovement>().target = spiderBoss.transform;
 
         yield return new WaitForSeconds(2);
+
+        audioSource.clip = spiderSounds[Random.Range(0, spiderSounds.Count)];
+        audioSource.Play();
 
         bossHpObject.SetActive(true);
 
@@ -116,6 +136,10 @@ public class BossFight : MonoBehaviour
             {
                 grabbedPlayedLeft = true;
             }
+
+            audioSource.clip = spiderSounds[Random.Range(0, spiderSounds.Count)];
+            audioSource.Play();
+
             bossAnim.SetTrigger("pPlayerCaught");
             bossAnim.SetBool("bEat", true);
             bat.GetComponent<Rigidbody2D>().simulated = false;
@@ -127,6 +151,9 @@ public class BossFight : MonoBehaviour
 
         yield return new WaitForSeconds(3.5f);
 
+        audioSource.clip = spiderSounds[Random.Range(0, spiderSounds.Count)];
+        audioSource.Play();
+
         GameManager.instance.SubtractLive();
         Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
         StartCoroutine(bat.HitInvinsibility(2));
@@ -137,5 +164,35 @@ public class BossFight : MonoBehaviour
         grabbedPlayedLeft = false;
         bossAnim.SetBool("bEat", false);
         bat.GetComponent<Rigidbody2D>().simulated = true;
+
+        if (isInEatRange)
+        {
+            StartCoroutine(AttackPlayer());
+        }
+    }
+
+    public IEnumerator KillBoss()
+    {
+        yield return new WaitForSeconds(1);
+
+        BatController bat = player.GetComponent<BatController>();
+
+        Camera.main.GetComponent<CameraMovement>().target = spiderBoss.transform;
+
+        yield return new WaitForSeconds(2);
+
+        spiderBossObject.SetActive(false);
+
+        yield return new WaitForSeconds(1);
+
+        Camera.main.GetComponent<CameraMovement>().target = bat.transform;
+
+        bat.moveSpeed = 0;
+        victoryAnim1.SetTrigger("Fade");
+        victoryAnim2.SetTrigger("Fade");
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("Ending");
     }
 }

@@ -61,6 +61,7 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
+                print("test");
                 if (Camera.main.orthographicSize > deathZoomCamSize)
                 {
                     Camera.main.orthographicSize -= (Time.deltaTime * deathZoomSpeed);

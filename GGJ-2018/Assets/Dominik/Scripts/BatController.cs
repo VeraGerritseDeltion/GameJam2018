@@ -64,6 +64,8 @@ public class BatController : MonoBehaviour
                 GameManager.instance.SubtractLive();
                 collision.GetComponent<Obstacle>().myAnimator.SetTrigger("Highlight");
 
+                Instantiate(rayRound, collision.transform.position, Quaternion.identity);
+
                 anim.SetTrigger("pHurt");
                 Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
             }
@@ -78,6 +80,8 @@ public class BatController : MonoBehaviour
         }
         else if (collision.tag == "Boss")
         {
+            BossFight.instance.isInEatRange = true;
+
             StartCoroutine(BossFight.instance.AttackPlayer());
         }
 
@@ -95,6 +99,11 @@ public class BatController : MonoBehaviour
         if (collision.tag == "BossSecondCheck")
         {
             BossFight.instance.isGrabbable = false;
+        }
+
+        if (collision.tag == "Boss")
+        {
+            BossFight.instance.isInEatRange = false;
         }
     }
 
