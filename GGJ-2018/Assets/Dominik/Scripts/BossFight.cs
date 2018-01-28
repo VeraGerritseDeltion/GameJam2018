@@ -173,6 +173,8 @@ public class BossFight : MonoBehaviour
 
     public IEnumerator KillBoss()
     {
+        yield return new WaitForSeconds(1);
+
         BatController bat = player.GetComponent<BatController>();
 
         Camera.main.GetComponent<CameraMovement>().target = spiderBoss.transform;
