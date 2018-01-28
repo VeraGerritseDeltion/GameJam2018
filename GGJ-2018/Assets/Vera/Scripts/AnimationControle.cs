@@ -12,7 +12,7 @@ public class AnimationControle : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         transform.position = cam.transform.position;
-        mainCam.transform.position = transform.position;
+        //mainCam.transform.position = transform.position;
         cam.enabled = false;
         anim.SetBool("StartFlying",true);
     }
