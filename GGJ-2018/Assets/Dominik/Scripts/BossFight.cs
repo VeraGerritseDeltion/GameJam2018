@@ -50,6 +50,10 @@ public class BossFight : MonoBehaviour
     {
         if (canAggro)
         {
+            print("l");
+            Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - transform.localPosition.x, BossBattleManager.bsm.target.position.y - transform.localPosition.y, 0);
+            float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle + 90);
 
         }
 
