@@ -10,7 +10,6 @@ public class BatRayController : MonoBehaviour
     public Animator anim;
 
     public Transform rayParent;
-    public Transform mousePos;
     public Transform newRaySpawn;
     [Space(10)]
     public float rotateSpeed;
@@ -22,6 +21,11 @@ public class BatRayController : MonoBehaviour
     public int raysToFire;
     public float timeBetweenRays;
 
+    Vector3 mousePos;
+    Vector3 target;
+    float angle;
+    public Transform raySpawn;
+
     [Header("Camera Shake")]
     public float shakeX;
     public float shakeY;
@@ -32,7 +36,16 @@ public class BatRayController : MonoBehaviour
 
     private void Update()
     {
-        RotateRay();
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            RotateRay();
+        }
+        else
+        {
+            RotateMouse();
+        }
+
+
 
         if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
         {
@@ -40,6 +53,19 @@ public class BatRayController : MonoBehaviour
 
             StartCoroutine(FireRay());
         }
+    }
+
+    private void RotateMouse()
+    {
+        if (!isFiringRay)
+        {
+            mousePos = Input.mousePosition;
+            target = Camera.main.WorldToScreenPoint(transform.localPosition);
+            Vector2 offset = new Vector2(mousePos.x - target.x, mousePos.y - target.y);
+            angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+            raySpawn.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        }
+
     }
 
     private void RotateRay()

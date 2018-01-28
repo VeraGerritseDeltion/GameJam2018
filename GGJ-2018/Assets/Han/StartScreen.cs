@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartScreen : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class StartScreen : MonoBehaviour
     public GameObject gameOverPanel;
 
     public Dropdown difficultyDropdown;
+
+    public TextMeshProUGUI deathCountText;
 
     void Start()
     {
@@ -58,7 +61,7 @@ public class StartScreen : MonoBehaviour
                 pausePanel.SetActive(true);
                 Time.timeScale = 0;
             }
-            else if(quitMenu.activeSelf == true || optionsMenu.activeSelf == true){
+            else if(quitMenu.activeSelf == true){
                 quitMenu.SetActive(false);
                 optionsMenu.SetActive(false);
             }

@@ -10,6 +10,8 @@ public class DataManager : MonoBehaviour
     public bool hasStartedGameBefore;
     public bool restart;
 
+    public int deaths;
+
     public enum Difficulty
     {
         Easy,
