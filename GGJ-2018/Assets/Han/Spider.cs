@@ -7,7 +7,7 @@ public class Spider : MonoBehaviour {
 
     private void Update(){
 
-        if (BossFight.instance.grabbedPlayedLeft == false && BossFight.instance.grabbedPlayedRight == false) {
+        if (BossFight.instance.grabbedPlayedLeft == false && BossFight.instance.grabbedPlayedRight == false && GameManager.instance.isDead == false) {
             transform.Translate(-Vector3.up * Time.deltaTime * spiderSpeed);
         }
         Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - transform.localPosition.x, BossBattleManager.bsm.target.position.y - transform.localPosition.y, 0);

@@ -94,7 +94,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1.29
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   lifeTime: 1
   moveSpeed: 1500
   scaleIncreaseSpeed: 12
-  volumeDecreaseSpeed: 1
 --- !u!164 &164766393583757168
 AudioReverbFilter:
   m_ObjectHideFlags: 1
