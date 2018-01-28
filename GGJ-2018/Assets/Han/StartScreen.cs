@@ -58,7 +58,7 @@ public class StartScreen : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Cancel")){
-            if(pausePanel.activeSelf == false && startPanel.activeSelf == false){
+            if (pausePanel.activeSelf == false && startPanel.activeSelf == false && difficultyPanel.activeSelf == false && optionsMenu.activeSelf == false){
                 pausePanel.SetActive(true);
                 Time.timeScale = 0;
             }
