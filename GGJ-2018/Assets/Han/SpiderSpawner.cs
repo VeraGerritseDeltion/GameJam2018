@@ -28,9 +28,10 @@ public class SpiderSpawner : MonoBehaviour{
         if(collision.tag == "Player"){
             BossFight.instance.bossHpFill.fillAmount -= 0.2f;
             anim.SetBool("Boem", true);
-            GetComponent<Collider>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
             if (BossFight.instance.bossHpFill.fillAmount < 0.1){
-                BossFight.instance.KillBoss();
+
+                BossFight.instance.StartCoroutine(BossFight.instance.KillBoss());
             }
         }
     }

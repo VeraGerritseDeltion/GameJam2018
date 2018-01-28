@@ -158,10 +158,13 @@ public class BossFight : MonoBehaviour
         Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
         StartCoroutine(bat.HitInvinsibility(2));
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         grabbedPlayedRight = false;
         grabbedPlayedLeft = false;
+
+        yield return new WaitForSeconds(0.5f);
+
         bossAnim.SetBool("bEat", false);
         bat.GetComponent<Rigidbody2D>().simulated = true;
 
@@ -176,6 +179,7 @@ public class BossFight : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         BatController bat = player.GetComponent<BatController>();
+        bat.moveSpeed = 0;
 
         Camera.main.GetComponent<CameraMovement>().target = spiderBoss.transform;
 
@@ -187,7 +191,6 @@ public class BossFight : MonoBehaviour
 
         Camera.main.GetComponent<CameraMovement>().target = bat.transform;
 
-        bat.moveSpeed = 0;
         victoryAnim1.SetTrigger("Fade");
         victoryAnim2.SetTrigger("Fade");
 
