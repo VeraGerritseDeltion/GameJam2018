@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 114262861783428918}
   - component: {fileID: 82838240934924168}
   - component: {fileID: 95785253806147996}
+  - component: {fileID: 50406471223332316}
+  - component: {fileID: 58486266438722994}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Obstacle
@@ -375,6 +377,41 @@ Transform:
   m_Father: {fileID: 4136966381674298}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50406471223332316
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212463009306996}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &58486266438722994
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212463009306996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!58 &58829361601053468
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -1602,7 +1639,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spiderSpeed: 5
-  bsm: {fileID: 0}
 --- !u!114 &114716732958059310
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,6 +12,13 @@ public class DataManager : MonoBehaviour
 
     public int deaths;
 
+    public enum RayMovement
+    {
+        Mouse,
+        Keys
+    }
+    public RayMovement rayMovement;
+
     public enum Difficulty
     {
         Easy,

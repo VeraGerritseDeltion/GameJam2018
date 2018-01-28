@@ -10,6 +10,7 @@ TagManager:
   - Heart
   - SlowDown
   - Web
+  - Boss
   layers:
   - Default
   - TransparentFX
