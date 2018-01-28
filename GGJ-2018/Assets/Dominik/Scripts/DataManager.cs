@@ -9,6 +9,7 @@ public class DataManager : MonoBehaviour
 
     public bool hasStartedGameBefore;
     public bool restart;
+    public bool completedTutorial;
 
     public int deaths;
 
