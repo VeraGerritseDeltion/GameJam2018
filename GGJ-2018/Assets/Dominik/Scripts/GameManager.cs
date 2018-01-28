@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public BatController batController;
     public Rigidbody2D batLetterRb;
 
+    public Transform bossEntranceSpawnPoint;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             SubtractLive();
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = bossEntranceSpawnPoint.position;
         }
     }
 

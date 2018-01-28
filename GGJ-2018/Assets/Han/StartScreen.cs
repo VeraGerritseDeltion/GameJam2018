@@ -17,6 +17,7 @@ public class StartScreen : MonoBehaviour
     public GameObject gameOverPanel;
 
     public Dropdown difficultyDropdown;
+    public Dropdown rayMovementDropdown;
 
     public TextMeshProUGUI deathCountText;
 
@@ -136,6 +137,7 @@ public class StartScreen : MonoBehaviour
 
     public void OptionMenu()
     {
+        pausePanel.SetActive(false);
         optionsMenu.SetActive(true);
     }
 
@@ -181,5 +183,21 @@ public class StartScreen : MonoBehaviour
         pausePanel.SetActive(false);
         difficultyPanel.SetActive(false);
         optionsMenu.SetActive(false);
+    }
+
+    public void SetRayMovement()
+    {
+        switch (rayMovementDropdown.value)
+        {
+            case 0:
+
+                DataManager.instance.rayMovement = DataManager.RayMovement.Mouse;
+                break;
+
+            case 1:
+
+                DataManager.instance.rayMovement = DataManager.RayMovement.Keys;
+                break;
+        }
     }
 }
