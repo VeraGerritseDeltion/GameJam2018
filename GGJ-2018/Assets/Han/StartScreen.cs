@@ -21,6 +21,8 @@ public class StartScreen : MonoBehaviour
 
     public TextMeshProUGUI deathCountText;
 
+    int lives;
+
     void Start()
     {
         Time.timeScale = 0;
@@ -93,6 +95,27 @@ public class StartScreen : MonoBehaviour
 
         difficultyPanel.SetActive(false);
 
+        //switch (DataManager.instance.difficulty)
+        //{
+        //    case DataManager.Difficulty.Easy:
+
+        //        lives = 5;
+        //        break;
+        //    case DataManager.Difficulty.Medium:
+
+        //        lives = 3;
+        //        break;
+        //    case DataManager.Difficulty.Hard:
+
+        //        lives = 1;
+        //        break;
+        //}
+
+        DataManager.instance.hasStartedGameBefore = true;
+    }
+
+    public void StartMyGame()
+    {
         switch (DataManager.instance.difficulty)
         {
             case DataManager.Difficulty.Easy:
@@ -108,8 +131,6 @@ public class StartScreen : MonoBehaviour
                 StartCoroutine(GameManager.instance.StartGame(1));
                 break;
         }
-
-        DataManager.instance.hasStartedGameBefore = true;
     }
 
     public void StartGame()
