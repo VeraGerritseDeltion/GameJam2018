@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpiderSpawner : MonoBehaviour{
     public GameObject spider;
     public float spawnTime;
+    public int limit;
+    int amount;
 
     private void Start() {
         StartCoroutine(spawnSpider());
@@ -12,7 +14,10 @@ public class SpiderSpawner : MonoBehaviour{
 
     IEnumerator spawnSpider(){
         yield  return new WaitForSeconds(spawnTime);
-        StartCoroutine(spawnSpider());
+        amount++;
+        if (amount <= limit){
+            StartCoroutine(spawnSpider());
+        }
         Instantiate(spider,transform.position,transform.rotation);
     }
 }
