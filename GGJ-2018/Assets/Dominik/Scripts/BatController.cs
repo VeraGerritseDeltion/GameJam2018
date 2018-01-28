@@ -15,7 +15,7 @@ public class BatController : MonoBehaviour
     public float moveSpeed;
     [Space(10)]
     public float hitInvinsiibilityTime;
-    private bool canGetHit = true;
+    public bool canGetHit = true;
 
     [Header("Camera Shake")]
     public float shakeX;
@@ -59,7 +59,7 @@ public class BatController : MonoBehaviour
         {
             if (canGetHit)
             {
-                StartCoroutine(HitInvinsibility());
+                StartCoroutine(HitInvinsibility(hitInvinsiibilityTime));
 
                 GameManager.instance.SubtractLive();
                 collision.GetComponent<Obstacle>().myAnimator.SetTrigger("Highlight");
@@ -76,11 +76,25 @@ public class BatController : MonoBehaviour
         else if(collision.tag == "Web"){
             moveSpeed /= 2;
         }
+        else if (collision.tag == "Boss")
+        {
+            StartCoroutine(BossFight.instance.AttackPlayer());
+        }
+
+        if (collision.tag == "BossSecondCheck")
+        {
+            BossFight.instance.isGrabbable = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Web") {
             moveSpeed *= 2;
+        }
+
+        if (collision.tag == "BossSecondCheck")
+        {
+            BossFight.instance.isGrabbable = false;
         }
     }
 
@@ -90,7 +104,7 @@ public class BatController : MonoBehaviour
         {
             if (canGetHit)
             {
-                StartCoroutine(HitInvinsibility());
+                StartCoroutine(HitInvinsibility(hitInvinsiibilityTime));
 
                 Instantiate(rayRound, collision.contacts[0].point, Quaternion.identity);
 
@@ -101,10 +115,10 @@ public class BatController : MonoBehaviour
         }
     }
 
-    private IEnumerator HitInvinsibility()
+    public IEnumerator HitInvinsibility(float time)
     {
         canGetHit = false;
-        yield return new WaitForSeconds(hitInvinsiibilityTime);
+        yield return new WaitForSeconds(time);
         canGetHit = true;
     }
 }

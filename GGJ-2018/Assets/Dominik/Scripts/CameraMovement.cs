@@ -20,9 +20,12 @@ public class CameraMovement : MonoBehaviour
     public Transform target;
     public float moveSpeed;
 
+    private float defaultZoom;
+
     private void Awake()
     {
         offset = transform.position - target.position;
+        defaultZoom = Camera.main.orthographicSize;
     }
 
     private void Update()
@@ -40,6 +43,21 @@ public class CameraMovement : MonoBehaviour
             if (!GameManager.instance.isDead)
             {
                 transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
+
+                if (BossFight.instance.grabbedPlayedLeft || BossFight.instance.grabbedPlayedRight)
+                {
+                    if (Camera.main.orthographicSize > BossFight.instance.bossCamZoom)
+                    {
+                        Camera.main.orthographicSize -= (Time.deltaTime * BossFight.instance.bossCamZoomSpeed);
+                    }
+                }
+                else
+                {
+                    if (Camera.main.orthographicSize < defaultZoom)
+                    {
+                        Camera.main.orthographicSize += (Time.deltaTime * BossFight.instance.bossCamZoomSpeed);
+                    }
+                }
             }
             else
             {

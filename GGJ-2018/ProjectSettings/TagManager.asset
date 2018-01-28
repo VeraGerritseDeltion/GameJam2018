@@ -11,6 +11,7 @@ TagManager:
   - SlowDown
   - Web
   - Boss
+  - BossSecondCheck
   layers:
   - Default
   - TransparentFX
