@@ -26169,6 +26169,36 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_RoomHF
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_DecayTime
+      value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_DecayHFRatio
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_ReverbLevel
+      value: -302
+      objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_ReverbDelay
+      value: 0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 164659852833153302, guid: 11df81c733ded8049b6addc553ed72d7,
+        type: 2}
+      propertyPath: m_ReverbPreset
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11df81c733ded8049b6addc553ed72d7, type: 2}
   m_IsPrefabParent: 0
@@ -36998,6 +37028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288139341}
   - component: {fileID: 1288139342}
+  - component: {fileID: 1288139343}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -37099,6 +37130,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!164 &1288139343
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1288139340}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: 0
+  m_DecayTime: 2.91
+  m_DecayHFRatio: 1.3
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: -302
+  m_ReverbDelay: 0.022
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 9
 --- !u!1001 &1288952638
 Prefab:
   m_ObjectHideFlags: 0

@@ -158,12 +158,10 @@ public class BossFight : MonoBehaviour
         Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
         StartCoroutine(bat.HitInvinsibility(2));
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         grabbedPlayedRight = false;
         grabbedPlayedLeft = false;
-
-        yield return new WaitForSeconds(0.5f);
 
         bossAnim.SetBool("bEat", false);
         bat.GetComponent<Rigidbody2D>().simulated = true;
