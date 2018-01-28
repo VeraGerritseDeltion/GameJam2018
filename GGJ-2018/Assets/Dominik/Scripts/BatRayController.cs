@@ -7,6 +7,8 @@ public class BatRayController : MonoBehaviour
 
     public static bool isFiringRay;
 
+    public static bool canFire;
+
     public Animator anim;
 
     public Transform rayParent;
@@ -36,20 +38,24 @@ public class BatRayController : MonoBehaviour
 
     private void Update()
     {
-        if (DataManager.instance.rayMovement == DataManager.RayMovement.Mouse)
-        {
-            RotateMouse();
-        }
-        else
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             RotateRay();
         }
-
-        if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
+        else
         {
-            rayRateCooldown = Time.time + rayCooldown;
+            RotateMouse();
+        }
 
-            StartCoroutine(FireRay());
+
+        if (canFire)
+        {
+            if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
+            {
+                rayRateCooldown = Time.time + rayCooldown;
+
+                StartCoroutine(FireRay());
+            }
         }
     }
 

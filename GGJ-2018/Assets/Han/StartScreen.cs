@@ -71,6 +71,20 @@ public class StartScreen : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+
+        if (startPanel.activeInHierarchy || 
+            pausePanel.activeInHierarchy || 
+            quitMenu.activeInHierarchy || 
+            optionsMenu.activeInHierarchy || 
+            difficultyPanel.activeInHierarchy || 
+            gameOverPanel.activeInHierarchy)
+        {
+            BatRayController.canFire = false;
+        }
+        else
+        {
+            BatRayController.canFire = true;
+        }
     }
 
     public void StartGameButtonWithChosentDifficulty()
@@ -132,6 +146,7 @@ public class StartScreen : MonoBehaviour
 
     public void EndGame()
     {
+        pausePanel.SetActive(false);
         quitMenu.SetActive(true);
     }
 
@@ -148,6 +163,7 @@ public class StartScreen : MonoBehaviour
 
     public void EndGameNo()
     {
+        Time.timeScale = 1;
         quitMenu.SetActive(false);
     }
 

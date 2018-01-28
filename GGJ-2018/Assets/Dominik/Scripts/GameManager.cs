@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        if (DataManager.instance.completedTutorial)
+        {
+            // put player beneath well
+        }
     }
 
     private void Update()
@@ -80,6 +85,8 @@ public class GameManager : MonoBehaviour
         maxLives = lives;
 
         yield return new WaitForSeconds(1f);
+
+        BatRayController.canFire = true;
 
         for (int i = 0; i < maxLives; i++)
         {
