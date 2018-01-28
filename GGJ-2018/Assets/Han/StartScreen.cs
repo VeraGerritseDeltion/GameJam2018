@@ -4,79 +4,179 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartScreen : MonoBehaviour{
-    public GameObject startCanvas,pauseCanvas;
-    public GameObject quitMenu, optionMenu;
-    public GameObject pointer;
-    public GameObject dificultiLock;
-    public GameObject gamOverScreen;
+public class StartScreen : MonoBehaviour
+{
 
-    void Start(){
-        if(startCanvas.activeSelf == true){
-            StartCoroutine(GameManager.instance.StartGame());
-        }
-        dificultiLock.SetActive(false);
-        startCanvas.SetActive(true);
-        quitMenu.SetActive(false);
-        pauseCanvas.SetActive(false);
-        optionMenu.SetActive(false);
-        gamOverScreen.SetActive(false);
+    public GameObject startPanel;
+    public GameObject pausePanel;
+    public GameObject quitMenu;
+    public GameObject optionsMenu;
+    //public GameObject pointer;
+    public GameObject difficultyPanel;
+    public GameObject gameOverPanel;
+
+    public Dropdown difficultyDropdown;
+
+    void Start()
+    {
         Time.timeScale = 0;
+
+        if (DataManager.instance.restart && DataManager.instance.hasStartedGameBefore)
+        {
+            DataManager.instance.restart = false;
+
+            startPanel.SetActive(false);
+            difficultyPanel.SetActive(false);
+            Time.timeScale = 1;
+
+            switch (DataManager.instance.difficulty)
+            {
+                case DataManager.Difficulty.Easy:
+
+                    StartCoroutine(GameManager.instance.StartGame(5));
+                    break;
+                case DataManager.Difficulty.Medium:
+
+                    StartCoroutine(GameManager.instance.StartGame(3));
+                    break;
+                case DataManager.Difficulty.Hard:
+
+                    StartCoroutine(GameManager.instance.StartGame(1));
+                    break;
+            }
+        }
+        else
+        {
+            startPanel.SetActive(true);
+        }
     }
 
-    private void Update(){
-
+    private void Update()
+    {
         if (Input.GetButtonDown("Cancel")){
-            if(pauseCanvas.activeSelf == false && startCanvas.activeSelf == false){
-                pauseCanvas.SetActive(true);
+            if(pausePanel.activeSelf == false && startPanel.activeSelf == false){
+                pausePanel.SetActive(true);
                 Time.timeScale = 0;
             }
-            else if(quitMenu.activeSelf == true || optionMenu.activeSelf == true){
+            else if(quitMenu.activeSelf == true || optionsMenu.activeSelf == true){
                 quitMenu.SetActive(false);
-                optionMenu.SetActive(false);
+                optionsMenu.SetActive(false);
             }
             else{
-                pauseCanvas.SetActive(false);
+                pausePanel.SetActive(false);
                 Time.timeScale = 1;
             }
         }
     }
 
-
-    public void StartGame(){
-        dificultiLock.SetActive(true);
-        startCanvas.SetActive(false);
-        pauseCanvas.SetActive(false);
+    public void StartGameButtonWithChosentDifficulty()
+    {
         Time.timeScale = 1;
+
+        difficultyPanel.SetActive(false);
+
+        switch (DataManager.instance.difficulty)
+        {
+            case DataManager.Difficulty.Easy:
+
+                StartCoroutine(GameManager.instance.StartGame(5));
+                break;
+            case DataManager.Difficulty.Medium:
+
+                StartCoroutine(GameManager.instance.StartGame(3));
+                break;
+            case DataManager.Difficulty.Hard:
+
+                StartCoroutine(GameManager.instance.StartGame(1));
+                break;
+        }
+
+        DataManager.instance.hasStartedGameBefore = true;
     }
 
-    public void EndGame(){
+    public void StartGame()
+    {
+        if (!DataManager.instance.hasStartedGameBefore)
+        {
+            startPanel.SetActive(false);
+            difficultyPanel.SetActive(true);
+            return;
+        }
+
+        Time.timeScale = 1;
+
+        switch (DataManager.instance.difficulty)
+        {
+            case DataManager.Difficulty.Easy:
+
+                StartCoroutine(GameManager.instance.StartGame(5));
+                break;
+            case DataManager.Difficulty.Medium:
+
+                StartCoroutine(GameManager.instance.StartGame(3));
+                break;
+            case DataManager.Difficulty.Hard:
+
+                StartCoroutine(GameManager.instance.StartGame(1));
+                break;
+        }
+
+        startPanel.SetActive(false);
+
+        DataManager.instance.hasStartedGameBefore = true;
+    }
+
+    public void EndGame()
+    {
         quitMenu.SetActive(true);
     }
 
-    public void OptionMenu(){
-        optionMenu.SetActive(true);
+    public void OptionMenu()
+    {
+        optionsMenu.SetActive(true);
     }
 
-    public void EndGameYes(){
+    public void EndGameYes()
+    {
         Application.Quit();
     }
 
-    public void EndGameNo() {
+    public void EndGameNo()
+    {
         quitMenu.SetActive(false);
     }
 
-    public void Highlight(Transform t){
-        pointer.transform.SetParent(t);
-        pointer.transform.localPosition = new Vector3(-75,0,0);
-        pointer.SetActive(true);
+    public void Restart()
+    {
+        DataManager.instance.restart = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void noHighlight() {
-        pointer.SetActive(false);
+    public void SetDifficulty()
+    {
+        switch (difficultyDropdown.value)
+        {
+            case 0:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Easy;
+                break;
+            case 1:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Medium;
+                break;
+            case 2:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Hard;
+                break;
+        }
     }
 
-    public void Restart() {
-        SceneManager.LoadScene(0);
+    public void ContinueButton()
+    {
+        Time.timeScale = 1;
+
+        pausePanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 }

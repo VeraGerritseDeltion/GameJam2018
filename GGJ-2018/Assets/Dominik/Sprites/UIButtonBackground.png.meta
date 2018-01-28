@@ -1,16 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: d46f04c663baecc4b9aef1209849fbc5
-timeCreated: 1517088776
-=======
-<<<<<<< HEAD
-guid: 0a52f5b94c4cddd43a621b3a2a50859c
-timeCreated: 1517079240
-=======
-guid: 732085699280c9b47a4cea262af473bc
-timeCreated: 1517078532
->>>>>>> 902988110b84fd02c5e8bd72483adfe8b25a405b
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
+guid: 70ff0a37d3a180b47a628b2f60b9b8a1
+timeCreated: 1517092916
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -18,15 +8,7 @@ TextureImporter:
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
     enableMipMap: 0
->>>>>>> 902988110b84fd02c5e8bd72483adfe8b25a405b
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -52,20 +34,6 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 0
-<<<<<<< HEAD
-=======
-=======
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -73,8 +41,6 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
->>>>>>> 902988110b84fd02c5e8bd72483adfe8b25a405b
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,28 +48,16 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
-<<<<<<< HEAD
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
-=======
-<<<<<<< HEAD
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
-=======
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
->>>>>>> 902988110b84fd02c5e8bd72483adfe8b25a405b
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -112,12 +66,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -126,8 +76,16 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
->>>>>>> 902988110b84fd02c5e8bd72483adfe8b25a405b
->>>>>>> 111fababc34161f58ebe3dd6f7d89e360d53cc87
+  - buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
