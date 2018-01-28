@@ -4950,10 +4950,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9215605e41a0f954fac1ba4845b99be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   maxLives: 3
   heartObject: {fileID: 1468377424497944, guid: 00c2163bf33f50f4eb6400261ebf98ea,
     type: 2}
   heartContainer: {fileID: 1928045360}
+  batController: {fileID: 0}
+  batLetterRb: {fileID: 0}
 --- !u!4 &1444852915
 Transform:
   m_ObjectHideFlags: 0
@@ -6378,6 +6381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   style: 1
+  deathZoomCamSize: 0
+  deathZoomSpeed: 0
   target: {fileID: 729881384}
   moveSpeed: 3.5
 --- !u!114 &1900241396

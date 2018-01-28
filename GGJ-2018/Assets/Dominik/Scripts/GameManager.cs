@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isDead;
     public int maxLives;
+    public StartScreen sc;
     private int currentLives;
 
     public GameObject heartObject;
@@ -97,8 +98,8 @@ public class GameManager : MonoBehaviour
         batController.anim.SetTrigger("pDie");
         batLetterRb.simulated = true;
 
-        yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length);
-
-        print("bring up death screen");
+        yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length + 4f);
+        sc.gamOverScreen.SetActive(true);
+        
     }
 }
