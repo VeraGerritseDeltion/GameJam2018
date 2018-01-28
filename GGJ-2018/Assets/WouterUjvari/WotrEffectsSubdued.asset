@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: WotrEffects
+  m_Name: WotrEffectsSubdued
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -79,9 +79,9 @@ MonoBehaviour:
   motionBlur:
     m_Enabled: 1
     m_Settings:
-      shutterAngle: 270
-      sampleCount: 10
-      frameBlending: 0.053
+      shutterAngle: 1
+      sampleCount: 4
+      frameBlending: 0.028
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -109,7 +109,7 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: 69e847bbff1cf5449a4ee0bbd045dbc9, type: 3}
         intensity: 3
   colorGrading:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       tonemapping:
         tonemapper: 2
@@ -298,9 +298,9 @@ MonoBehaviour:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.411
-      smoothness: 0.656
-      roundness: 1
+      intensity: 0.73
+      smoothness: 0.612
+      roundness: 0
       mask: {fileID: 0}
       opacity: 1
       rounded: 0
