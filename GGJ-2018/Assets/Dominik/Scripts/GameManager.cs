@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         isDead = true;
 
         CameraMovement camMove = Camera.main.GetComponent<CameraMovement>();
-        camMove.moveSpeed = 100f;
+        camMove.transform.position = new Vector3(batController.transform.position.x, batController.transform.position.y, camMove.transform.position.z);
 
         while (Camera.main.orthographicSize > camMove.deathZoomCamSize)
         {
@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length + 4f);
         sc.gameOverPanel.SetActive(true);
-        
+
+        DataManager.instance.deaths++;
+        sc.deathCountText.text = "Death Count: " + DataManager.instance.deaths;
     }
 }
