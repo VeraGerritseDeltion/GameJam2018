@@ -68,11 +68,19 @@ public class BatController : MonoBehaviour
                 Camera.main.transform.GetComponent<CameraShake>().Shake(shakeDuration, shakeX, shakeY, shakeZ, shakeRotate, shakeSpeed);
             }
         }
-
-        if (collision.tag == "Heart")
+        else if (collision.tag == "Heart")
         {
             GameManager.instance.AddLive();
             Destroy(collision.gameObject);
+        }
+        else if(collision.tag == "Web"){
+            moveSpeed /= 2;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "Web") {
+            moveSpeed *= 2;
         }
     }
 
