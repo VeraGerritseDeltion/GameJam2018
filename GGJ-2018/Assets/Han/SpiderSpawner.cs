@@ -7,6 +7,7 @@ public class SpiderSpawner : MonoBehaviour{
     public float spawnTime;
     public int limit;
     int amount;
+    public Animator anim;
 
     private void Start() {
         StartCoroutine(spawnSpider());
@@ -26,6 +27,15 @@ public class SpiderSpawner : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D collision) {
         if(collision.tag == "Player"){
             BossFight.instance.bossHpFill.fillAmount -= 0.2f;
+            anim.SetBool("Boem", true);
+            GetComponent<Collider>().enabled = false;
+            if (BossFight.instance.bossHpFill.fillAmount < 0.1){
+                BossFight.instance.KillBoss();
+            }
         }
+    }
+
+    public void Deletus(){
+        Destroy(gameObject);
     }
 }
