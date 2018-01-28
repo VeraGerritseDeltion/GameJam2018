@@ -11,7 +11,7 @@ public class BossFight : MonoBehaviour
     private GameObject player;
 
     private bool isInBossFight;
-    private bool canAggro;
+    public bool canAggro;
     public bool isGrabbable;
     public bool grabbedPlayedRight;
     public bool grabbedPlayedLeft;
@@ -22,6 +22,7 @@ public class BossFight : MonoBehaviour
     public GameObject bossHpObject;
     public Image bossHpFill;
 
+    public Transform spiderRotate;
     public Transform spiderSecondCheckTriggerRight;
     public Transform spiderSecondCheckTriggerLeft;
 
@@ -48,12 +49,12 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
-        if (canAggro)
+        if (canAggro && grabbedPlayedLeft == false && grabbedPlayedLeft == false)
         {
-            print("l");
-            Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - transform.localPosition.x, BossBattleManager.bsm.target.position.y - transform.localPosition.y, 0);
+            print("k");
+            Vector3 offset = new Vector3(BossBattleManager.bsm.target.position.x - spiderRotate.localPosition.x, BossBattleManager.bsm.target.position.y - spiderRotate.localPosition.y, 0);
             float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+            spiderRotate.rotation = Quaternion.Euler(0, 0, angle - 90);
 
         }
 
@@ -116,6 +117,7 @@ public class BossFight : MonoBehaviour
                 grabbedPlayedLeft = true;
             }
             bossAnim.SetTrigger("pPlayerCaught");
+            bossAnim.SetBool("bEat", true);
             bat.GetComponent<Rigidbody2D>().simulated = false;
         }
         else
@@ -133,6 +135,7 @@ public class BossFight : MonoBehaviour
 
         grabbedPlayedRight = false;
         grabbedPlayedLeft = false;
+        bossAnim.SetBool("bEat", false);
         bat.GetComponent<Rigidbody2D>().simulated = true;
     }
 }
