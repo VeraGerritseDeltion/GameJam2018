@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438140415575684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 241.40746, y: -1012.9757, z: 0}
+  m_LocalPosition: {x: 70.4, y: -958.9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   spider: {fileID: 1212463009306996, guid: 2caab660768ad1d45a199977514840e2, type: 2}
   spawnTime: 2
   limit: 0
+  anim: {fileID: 95644890802273222}
 --- !u!212 &212145933248280048
 SpriteRenderer:
   m_ObjectHideFlags: 1

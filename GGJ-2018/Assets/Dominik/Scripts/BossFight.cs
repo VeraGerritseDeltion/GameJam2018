@@ -17,6 +17,8 @@ public class BossFight : MonoBehaviour
     public bool isGrabbable;
     public bool grabbedPlayedRight;
     public bool grabbedPlayedLeft;
+    public AudioSource bossmusic;
+    public AudioSource normalmusic;
 
     public GameObject spiderBossObject;
     public GameObject spiderBoss;
@@ -109,7 +111,8 @@ public class BossFight : MonoBehaviour
 
         audioSource.clip = spiderSounds[Random.Range(0, spiderSounds.Count)];
         audioSource.Play();
-
+        bossmusic.Play();
+        normalmusic.Stop();
         bossHpObject.SetActive(true);
 
         yield return new WaitForSeconds(1);
