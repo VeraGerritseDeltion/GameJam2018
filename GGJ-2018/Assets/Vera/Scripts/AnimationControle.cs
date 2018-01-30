@@ -8,7 +8,7 @@ public class AnimationControle : MonoBehaviour {
     public Camera mainCam;
     bool started;
     public Transform spawn;
-    public StartScreen stratugh;
+    public UIManager stratugh;
 
     private void Awake()
     {

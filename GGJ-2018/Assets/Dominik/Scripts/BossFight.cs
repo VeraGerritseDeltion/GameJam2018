@@ -80,11 +80,6 @@ public class BossFight : MonoBehaviour
         {
             player.transform.position = spiderSecondCheckTriggerLeft.position;
         }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            StartCoroutine(KillBoss());
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -192,10 +187,9 @@ public class BossFight : MonoBehaviour
 
         Camera.main.GetComponent<CameraMovement>().target = bat.transform;
 
-        victoryAnim1.SetTrigger("Fade");
-        victoryAnim2.SetTrigger("Fade");
+        UIManager.instance.fadeScreenAnim.SetTrigger("FadeOut");
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("Ending");
     }

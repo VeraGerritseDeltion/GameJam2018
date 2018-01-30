@@ -32,7 +32,7 @@ public class BatController : MonoBehaviour
 
     private void Update()
     {
-        if (!BatRayController.isFiringRay)
+        if (!BatRayController.isFiringRay && GameManager.instance.gameState == GameManager.GameState.Playing)
         {
             Movement();
         }

@@ -5,25 +5,49 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class StartScreen : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
 
+    public static UIManager instance;
+
+    private bool restartLevelOnContinue;
+
+    [Header("Panels")]
     public GameObject startPanel;
     public GameObject pausePanel;
     public GameObject quitMenu;
     public GameObject optionsMenu;
-    //public GameObject pointer;
     public GameObject difficultyPanel;
     public GameObject gameOverPanel;
+    public GameObject cheatsText;
 
+    [Header("Dropdowns")]
     public Dropdown difficultyDropdown;
     public Dropdown rayMovementDropdown;
+    public Dropdown changeDifficultyDropdown;
+    public Dropdown cheatDropdown;
 
+    [Header("Text")]
     public TextMeshProUGUI deathCountText;
+
+    [Header("Animators")]
+    public Animator fadeScreenAnim;
 
     int lives;
 
-    void Start()
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+    private void Start()
     {
         Time.timeScale = 0;
 
@@ -33,6 +57,8 @@ public class StartScreen : MonoBehaviour
 
             startPanel.SetActive(false);
             difficultyPanel.SetActive(false);
+
+            GameManager.instance.gameState = GameManager.GameState.Playing;
             Time.timeScale = 1;
 
             switch (DataManager.instance.difficulty)
@@ -59,18 +85,30 @@ public class StartScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel")){
-            if (pausePanel.activeSelf == false && startPanel.activeSelf == false && difficultyPanel.activeSelf == false && optionsMenu.activeSelf == false){
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (GameManager.instance.gameState == GameManager.GameState.Playing)
+            {
+                GameManager.instance.gameState = GameManager.GameState.Paused;
+
                 pausePanel.SetActive(true);
                 Time.timeScale = 0;
             }
-            else if(quitMenu.activeSelf == true){
-                quitMenu.SetActive(false);
-                optionsMenu.SetActive(false);
-            }
-            else{
-                pausePanel.SetActive(false);
-                Time.timeScale = 1;
+            else if (GameManager.instance.gameState == GameManager.GameState.Paused)
+            {
+                if (quitMenu.activeInHierarchy)
+                {
+                    quitMenu.SetActive(false);
+                    optionsMenu.SetActive(false);
+                }
+
+                if (pausePanel.activeInHierarchy)
+                {
+                    GameManager.instance.gameState = GameManager.GameState.Playing;
+
+                    pausePanel.SetActive(false);
+                    Time.timeScale = 1;
+                }
             }
         }
 
@@ -91,31 +129,17 @@ public class StartScreen : MonoBehaviour
 
     public void StartGameButtonWithChosentDifficulty()
     {
+        GameManager.instance.gameState = GameManager.GameState.Playing;
         Time.timeScale = 1;
 
         difficultyPanel.SetActive(false);
-
-        //switch (DataManager.instance.difficulty)
-        //{
-        //    case DataManager.Difficulty.Easy:
-
-        //        lives = 5;
-        //        break;
-        //    case DataManager.Difficulty.Medium:
-
-        //        lives = 3;
-        //        break;
-        //    case DataManager.Difficulty.Hard:
-
-        //        lives = 1;
-        //        break;
-        //}
-
         DataManager.instance.hasStartedGameBefore = true;
     }
 
     public void StartMyGame()
     {
+        GameManager.instance.gameState = GameManager.GameState.Playing;
+
         switch (DataManager.instance.difficulty)
         {
             case DataManager.Difficulty.Easy:
@@ -141,6 +165,8 @@ public class StartScreen : MonoBehaviour
             difficultyPanel.SetActive(true);
             return;
         }
+
+        GameManager.instance.gameState = GameManager.GameState.Playing;
 
         Time.timeScale = 1;
 
@@ -168,6 +194,12 @@ public class StartScreen : MonoBehaviour
     public void EndGame()
     {
         pausePanel.SetActive(false);
+
+        if (GameManager.instance.gameState == GameManager.GameState.Dead)
+        {
+            gameOverPanel.SetActive(false);
+        }
+
         quitMenu.SetActive(true);
     }
 
@@ -186,6 +218,11 @@ public class StartScreen : MonoBehaviour
     {
         Time.timeScale = 1;
         quitMenu.SetActive(false);
+
+        if (GameManager.instance.gameState == GameManager.GameState.Dead)
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 
     public void Restart()
@@ -215,11 +252,20 @@ public class StartScreen : MonoBehaviour
 
     public void ContinueButton()
     {
-        Time.timeScale = 1;
+        if (restartLevelOnContinue)
+        {
+            Restart();
+        }
+        else
+        {
+            GameManager.instance.gameState = GameManager.GameState.Playing;
+            Time.timeScale = 1;
 
-        pausePanel.SetActive(false);
-        difficultyPanel.SetActive(false);
-        optionsMenu.SetActive(false);
+            pausePanel.SetActive(false);
+            difficultyPanel.SetActive(false);
+            optionsMenu.SetActive(false);
+        }
+
     }
 
     public void SetRayMovement()
@@ -235,6 +281,49 @@ public class StartScreen : MonoBehaviour
 
                 DataManager.instance.rayMovement = DataManager.RayMovement.Keys;
                 break;
+        }
+    }
+
+    public void SetCheatDropdown()
+    {
+        switch (cheatDropdown.value)
+        {
+            case 0:
+
+                DataManager.instance.cheatsEnabled = false;
+                cheatsText.SetActive(false);
+                break;
+            case 1:
+
+                DataManager.instance.cheatsEnabled = true;
+                cheatsText.SetActive(true);
+                break;
+        }
+    }
+
+    public void SetNewDifficultyDropdown()
+    {
+        int currentDifficulty = (int)DataManager.instance.difficulty;
+
+        switch (changeDifficultyDropdown.value)
+        {
+            case 0:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Easy;
+                break;
+            case 1:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Medium;
+                break;
+            case 2:
+
+                DataManager.instance.difficulty = DataManager.Difficulty.Hard;
+                break;
+        }
+
+        if ((int)DataManager.instance.difficulty != currentDifficulty)
+        {
+            restartLevelOnContinue = true;
         }
     }
 }

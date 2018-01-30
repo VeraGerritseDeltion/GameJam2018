@@ -38,23 +38,32 @@ public class BatRayController : MonoBehaviour
 
     private void Update()
     {
-        if (DataManager.instance.rayMovement == DataManager.RayMovement.Mouse)
+        if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
-            RotateMouse();
+            rayParent.gameObject.SetActive(true);
+
+            if (DataManager.instance.rayMovement == DataManager.RayMovement.Mouse)
+            {
+                RotateMouse();
+            }
+            else
+            {
+                RotateRay();
+            }
+
+            if (canFire)
+            {
+                if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
+                {
+                    rayRateCooldown = Time.time + rayCooldown;
+
+                    StartCoroutine(FireRay());
+                }
+            }
         }
         else
         {
-            RotateRay();
-        }
-
-        if (canFire)
-        {
-            if (Input.GetButtonDown("Jump") && Time.time >= rayRateCooldown || Input.GetButtonDown("Fire1") && Time.time >= rayRateCooldown)
-            {
-                rayRateCooldown = Time.time + rayCooldown;
-
-                StartCoroutine(FireRay());
-            }
+            rayParent.gameObject.SetActive(false);
         }
     }
 

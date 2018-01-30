@@ -12,6 +12,7 @@ TagManager:
   - Web
   - Boss
   - BossSecondCheck
+  - Well
   layers:
   - Default
   - TransparentFX

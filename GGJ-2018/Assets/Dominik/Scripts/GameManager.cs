@@ -8,15 +8,23 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    [HideInInspector]
-    public bool isDead;
+    public enum GameState
+    {
+        Paused,
+        Playing,
+        Dead
+    }
+    public GameState gameState;
+
+    [Space(10)]
+    [Header("Health")]
     public int maxLives;
-    public StartScreen sc;
     private int currentLives;
 
     public GameObject heartObject;
     public Transform heartContainer;
 
+    [Header("Bat Stuff")]
     public BatController batController;
     public Rigidbody2D batLetterRb;
 
@@ -31,24 +39,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            AddLive();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            SubtractLive();
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = bossEntranceSpawnPoint.position;
         }
     }
 
@@ -92,11 +82,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        gameState = GameState.Dead;
+
         batController.enabled = false;
         batController.gameObject.GetComponent<Collider2D>().enabled = false;
         batController.gameObject.GetComponent<Rigidbody2D>().simulated = false;
-
-        isDead = true;
 
         CameraMovement camMove = Camera.main.GetComponent<CameraMovement>();
         camMove.transform.position = new Vector3(batController.transform.position.x, batController.transform.position.y, camMove.transform.position.z);
@@ -110,9 +100,9 @@ public class GameManager : MonoBehaviour
         batLetterRb.simulated = true;
 
         yield return new WaitForSeconds(batController.anim.GetCurrentAnimatorStateInfo(0).length + 4f);
-        sc.gameOverPanel.SetActive(true);
+        UIManager.instance.gameOverPanel.SetActive(true);
 
         DataManager.instance.deaths++;
-        sc.deathCountText.text = "Death Count: " + DataManager.instance.deaths;
+        UIManager.instance.deathCountText.text = "Death Count: " + DataManager.instance.deaths;
     }
 }

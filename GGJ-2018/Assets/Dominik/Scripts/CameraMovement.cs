@@ -40,7 +40,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (style == Style.Lerp)
         {
-            if (!GameManager.instance.isDead)
+            if (GameManager.instance.gameState != GameManager.GameState.Dead)
             {
                 transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * moveSpeed);
 
@@ -61,7 +61,6 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
-                print("test");
                 if (Camera.main.orthographicSize > deathZoomCamSize)
                 {
                     Camera.main.orthographicSize -= (Time.deltaTime * deathZoomSpeed);

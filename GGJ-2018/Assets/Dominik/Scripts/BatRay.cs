@@ -13,7 +13,6 @@ public class BatRay : MonoBehaviour
     public Type type;
 
     private Animator anim;
-    private List<Obstacle> triggeredObstacles = new List<Obstacle>();
 
     public float lifeTime;
     [Space(10)]
@@ -70,7 +69,7 @@ public class BatRay : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "CaveWall")
+        if (collision.transform.tag == "CaveWall" || collision.transform.tag == "Well")
         {
             AnimationEventDestroy();
 
