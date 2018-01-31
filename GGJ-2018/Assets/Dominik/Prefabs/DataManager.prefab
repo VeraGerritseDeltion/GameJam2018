@@ -53,4 +53,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasStartedGameBefore: 0
   restart: 0
+  completedTutorial: 0
+  cheatsEnabled: 0
+  hasUsedCheatsThisRun: 0
+  deaths: 0
+  finishedGameMessage: 
+  rayMovement: 0
   difficulty: 0
+  easyHealth: 5
+  easyRayWidthIncrease: 7
+  mediumHealth: 3
+  mediumRayWidthIncrease: 1.5
+  hardHealth: 1
+  hardRayWidthIncrease: 0.5

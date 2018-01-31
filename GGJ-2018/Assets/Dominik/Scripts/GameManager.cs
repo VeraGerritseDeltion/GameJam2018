@@ -30,6 +30,21 @@ public class GameManager : MonoBehaviour
 
     public Transform bossEntranceSpawnPoint;
 
+    [Header("Difficulty Settings")]
+    public List<Animator> animatorsToChange = new List<Animator>();
+    [Space(10)]
+    public int easyHealth;
+    public float easyRayWidthIncrease;
+    public float easyObstacleAnimatorSpeed;
+    [Space(10)]
+    public int mediumHealth;
+    public float mediumRayWidthIncrease;
+    public float mediumObstacleAnimatorSpeed;
+    [Space(10)]
+    public int hardHealth;
+    public float hardRayWidthIncrease;
+    public float hardObstacleAnimatorSpeed;
+
     private void Awake()
     {
         if (instance == null)
@@ -104,5 +119,37 @@ public class GameManager : MonoBehaviour
 
         DataManager.instance.deaths++;
         UIManager.instance.deathCountText.text = "Death Count: " + DataManager.instance.deaths;
+    }
+
+    public void ApplyDifficultySettings()
+    {
+        float obstacleAnimatorSpeed = 1;
+
+        switch (DataManager.instance.difficulty)
+        {
+            case DataManager.Difficulty.Easy:
+
+                StartCoroutine(StartGame(easyHealth));
+                GameObject.FindWithTag("Player").GetComponent<BatRayController>().batRayObject.GetComponent<BatRay>().scaleIncreaseSpeed = easyRayWidthIncrease;
+                obstacleAnimatorSpeed = easyObstacleAnimatorSpeed;
+                break;
+            case DataManager.Difficulty.Medium:
+
+                StartCoroutine(StartGame(mediumHealth));
+                GameObject.FindWithTag("Player").GetComponent<BatRayController>().batRayObject.GetComponent<BatRay>().scaleIncreaseSpeed = mediumRayWidthIncrease;
+                obstacleAnimatorSpeed = mediumObstacleAnimatorSpeed;
+                break;
+            case DataManager.Difficulty.Hard:
+
+                StartCoroutine(StartGame(hardHealth));
+                GameObject.FindWithTag("Player").GetComponent<BatRayController>().batRayObject.GetComponent<BatRay>().scaleIncreaseSpeed = hardRayWidthIncrease;
+                obstacleAnimatorSpeed = hardObstacleAnimatorSpeed;
+                break;
+        }
+
+        for (int i = 0; i < animatorsToChange.Count; i++)
+        {
+            animatorsToChange[i].speed = obstacleAnimatorSpeed;
+        }
     }
 }

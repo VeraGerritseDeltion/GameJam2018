@@ -11,8 +11,11 @@ public class DataManager : MonoBehaviour
     public bool restart;
     public bool completedTutorial;
     public bool cheatsEnabled;
+    public bool hasUsedCheatsThisRun;
 
     public int deaths;
+
+    public string finishedGameMessage;
 
     public enum RayMovement
     {
@@ -39,6 +42,36 @@ public class DataManager : MonoBehaviour
         else if (instance != null)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void SetupFinishedGameMessage()
+    {
+        string difficultyText = "";
+
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+
+                difficultyText = "<color=green>easy</color>";
+                break;
+            case Difficulty.Medium:
+
+                difficultyText = "<color=orange>medium</color>";
+                break;
+            case Difficulty.Hard:
+
+                difficultyText = "<color=red>hard</color>";
+                break;
+        }
+
+        if (!hasUsedCheatsThisRun)
+        {
+            finishedGameMessage = "You beat the game on " + difficultyText + "\nwithout using cheats!";
+        }
+        else
+        {
+            finishedGameMessage = "You beat the game on " + difficultyText + "\nbut you used cheats.. \nshame on you";
         }
     }
 }

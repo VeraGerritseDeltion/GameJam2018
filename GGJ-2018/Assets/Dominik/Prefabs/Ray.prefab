@@ -148,7 +148,6 @@ MonoBehaviour:
   lifeTime: 0.5
   moveSpeed: 50
   scaleIncreaseSpeed: 1.5
-  volumeDecreaseSpeed: 1
 --- !u!164 &164174684071055468
 AudioReverbFilter:
   m_ObjectHideFlags: 1

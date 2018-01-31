@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        DataManager.instance.hasUsedCheatsThisRun = false;
+
         Time.timeScale = 0;
 
         if (DataManager.instance.restart && DataManager.instance.hasStartedGameBefore)
@@ -61,21 +63,7 @@ public class UIManager : MonoBehaviour
             GameManager.instance.gameState = GameManager.GameState.Playing;
             Time.timeScale = 1;
 
-            switch (DataManager.instance.difficulty)
-            {
-                case DataManager.Difficulty.Easy:
-
-                    StartCoroutine(GameManager.instance.StartGame(5));
-                    break;
-                case DataManager.Difficulty.Medium:
-
-                    StartCoroutine(GameManager.instance.StartGame(3));
-                    break;
-                case DataManager.Difficulty.Hard:
-
-                    StartCoroutine(GameManager.instance.StartGame(1));
-                    break;
-            }
+            GameManager.instance.ApplyDifficultySettings();
         }
         else
         {
@@ -129,6 +117,8 @@ public class UIManager : MonoBehaviour
 
     public void StartGameButtonWithChosentDifficulty()
     {
+        SetDifficulty();
+
         GameManager.instance.gameState = GameManager.GameState.Playing;
         Time.timeScale = 1;
 
@@ -140,21 +130,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.gameState = GameManager.GameState.Playing;
 
-        switch (DataManager.instance.difficulty)
-        {
-            case DataManager.Difficulty.Easy:
-
-                StartCoroutine(GameManager.instance.StartGame(5));
-                break;
-            case DataManager.Difficulty.Medium:
-
-                StartCoroutine(GameManager.instance.StartGame(3));
-                break;
-            case DataManager.Difficulty.Hard:
-
-                StartCoroutine(GameManager.instance.StartGame(1));
-                break;
-        }
+        GameManager.instance.ApplyDifficultySettings();
     }
 
     public void StartGame()
@@ -170,21 +146,7 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 1;
 
-        switch (DataManager.instance.difficulty)
-        {
-            case DataManager.Difficulty.Easy:
-
-                StartCoroutine(GameManager.instance.StartGame(5));
-                break;
-            case DataManager.Difficulty.Medium:
-
-                StartCoroutine(GameManager.instance.StartGame(3));
-                break;
-            case DataManager.Difficulty.Hard:
-
-                StartCoroutine(GameManager.instance.StartGame(1));
-                break;
-        }
+        GameManager.instance.ApplyDifficultySettings();
 
         startPanel.SetActive(false);
 

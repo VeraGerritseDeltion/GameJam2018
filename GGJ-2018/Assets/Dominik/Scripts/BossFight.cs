@@ -174,6 +174,8 @@ public class BossFight : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        DataManager.instance.SetupFinishedGameMessage();
+
         BatController bat = player.GetComponent<BatController>();
         bat.moveSpeed = 0;
 

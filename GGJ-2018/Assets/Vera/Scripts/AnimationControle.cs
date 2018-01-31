@@ -10,7 +10,7 @@ public class AnimationControle : MonoBehaviour {
     public Transform spawn;
     public UIManager stratugh;
 
-    private void Awake()
+    private void Start()
     {
         if (DataManager.instance.hasStartedGameBefore)
         {
