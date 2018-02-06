@@ -979,6 +979,7 @@ MonoBehaviour:
   rayRound: {fileID: 0}
   moveSpeed: 20
   hitInvinsiibilityTime: 0
+  canGetHit: 1
   shakeX: 0
   shakeY: 0
   shakeZ: 0
